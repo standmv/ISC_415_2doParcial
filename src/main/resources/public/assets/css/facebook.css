@@ -55,11 +55,11 @@ hr {
 }
 
 .box {
-  	bottom:55px; /* increase for footer use */
-    left: 55px;
+  	bottom:0; /* increase for footer use */
+    left:0;
     position: absolute;
-    right:55px;
-    top: 55px;
+    right:0;
+    top:0;
     background-color:#444444;
   /*
     background-image:url('/assets/example/bg_suburb.jpg');
