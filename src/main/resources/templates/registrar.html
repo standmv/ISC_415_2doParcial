@@ -3,30 +3,26 @@
 <head>
 <meta charset="UTF-8">
 <title>Registrar</title>
+<link href="../public/assets/css/bootstrap.css" rel="stylesheet">
+<link href="../public/assets/css/estilos.css" rel="stylesheet">
+
 </head>
 
 <body>
-<link href="../public/assets/css/bootstrap.css" rel="stylesheet">
-<link href="../public/assets/css/estilos.css" rel="stylesheet">
-<script src="../public/assets/js/bootstrap.js"></script>
-<script src="../public/assets/js/jquery.js"></script>
-
-
-<div class="container panel panel-default">
             <form class="form-horizontal" role="form">
                 <h2 class="text-center">Registrar</h2>
                 <div class="form-group">
                     <label for="firstName" class="col-sm-3 control-label">Nombre</label>
                     <div class="col-sm-9">
                         <input type="text" id="Name" placeholder="" class="form-control" autofocus>
-                      
+
                     </div>
                 </div>
 				<div class="form-group">
                     <label for="firstName" class="col-sm-3 control-label">Apellido</label>
                     <div class="col-sm-9">
                         <input type="text" id="lastName" placeholder="" class="form-control" autofocus>
-                        
+
                     </div>
                 </div>
                 <div class="form-group">
@@ -47,7 +43,7 @@
                         <input type="date" id="birthDate" class="form-control">
                     </div>
                 </div>
-				
+
 				<div class="form-group">
     <label for="inputAddress" class="col-sm-3 control-label">Ciudad de Nacimiento</label>
 	 <div class="col-sm-9">
@@ -60,7 +56,7 @@
     <input type="text" class="form-control" id="escuelas" placeholder="">
 	</div>
   </div>
-				
+
 				<div class="form-group">
     <label for="inputAddress" class="col-sm-3 control-label">Dirección</label>
 	<div class="col-sm-9">
@@ -73,12 +69,12 @@
     <input type="text" class="form-control" id="trabajo" placeholder="">
 	</div>
   </div>
-				
+
                 <div class="form-group">
                     <label for="country" class="col-sm-3 control-label">Pais</label>
                     <div class="col-sm-9">
                         <select id="country" class="form-control">
-                          
+
 	<option value="AF">Afghanistan</option>
 	<option value="AX">Åland Islands</option>
 	<option value="AL">Albania</option>
@@ -346,7 +342,7 @@
                                     <input type="radio" id="maleRadio" value="Male">Hombre
                                 </label>
                             </div>
-                           
+
                         </div>
                     </div>
                 </div> <!-- /.form-group -->
@@ -364,7 +360,7 @@
                                     <input type="radio" id="adminRadio" value="Male">Administrador
                                 </label>
                             </div>
-                           
+
                         </div>
                     </div>
                 </div> <!-- /.form-group -->
@@ -379,10 +375,12 @@
                 </div> <!-- /.form-group -->
                 <div class="form-group">
                     <div class="col-sm-9 col-sm-offset-3">
-                        <button type="submit" class="btn btn-primary btn-block">Registrar</button>
+                        <button type="submit" class="btn btn-primary">Registrar</button>
                     </div>
                 </div>
             </form> <!-- /form -->
-        </div> <!-- ./container -->
+
+	<script src="../public/assets/js/bootstrap.js"></script>
+<script src="../public/assets/js/jquery.js"></script>
 </body>
 </html>

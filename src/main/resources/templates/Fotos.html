@@ -1,31 +1,15 @@
-<!DOCTYPE html>
-<html lang="en">
-	<head>
-        <meta http-equiv="content-type" content="text/html; charset=UTF-8"> 
-        <meta charset="utf-8">
-        <title>Home</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-          <link href="../public/assets/css/bootstrap.css" rel="stylesheet">
-        <!--[if lt IE 9]>
-          <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
-        <![endif]-->
-        <link href="../public/assets/css/facebook.css" rel="stylesheet">
-		/Users/StanDeMoya/Documents/GitHub/ISC_415_2doParcial/src/main/resources/public/assets/css
+<!doctype html>
+<html>
+<head>
+	<title>Fotos</title>
+<meta charset="UTF-8">
+      <link href="../public/assets/css/bootstrap.css" rel="stylesheet">
+	<link href="../public/assets/css/fotos.css" rel="stylesheet">
+
     </head>
-    
-    <body>
-        
-        <div class="wrapper">
-			<div class="box">
-				<div class="row row-offcanvas row-offcanvas-left">
-					
-					
-				  
-					<!-- main right col -->
-					<div class="column col-sm-12 col-xs-11" id="main">
-						
-						<!-- top nav -->
-						<div class="navbar navbar-blue navbar-static-top">  
+       <body>
+       <!-- top nav -->
+						<div class="navbar navbar-blue navbar-static-top">
 							<div class="navbar-header">
 							  <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".navbar-collapse">
 								<span class="sr-only">Toggle</span>
@@ -51,14 +35,16 @@
 							  <li>
 								<a href="#postModal" role="button" data-toggle="modal"><i class="glyphicon glyphicon-plus"></i> Publicar</a>
 							  </li>
-							  
+
 							</ul>
-								
+
 							<ul class="nav navbar-nav navbar-right">
 							  <li class="dropdown">
 								<a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="glyphicon glyphicon-user"></i></a>
 								<ul class="dropdown-menu">
-								  <li><a href="">Perfil</a></li>
+								 <li><a href="">Perfil</a></li>
+									<li><a href="">Fotos</a></li>
+									<li><a href="">Informacion</a></li>
 								  <li><a href="">Salir</a></li>
 								</ul>
 							  </li>
@@ -66,83 +52,39 @@
 							</nav>
 						</div>
 						<!-- /top nav -->
-					  
-						<div class="padding">
-							<div class="full col-sm-9">
-							  
-								<!-- content -->                      
-								<div class="row">
-								  
-								 <!-- main col left --> 
-								 <div class="col-sm-5">
-								 
-								  </div>
-								  
-								  <!-- main col right -->
-								  <div class="col-sm-7">
-									   
-										
-								   
-									  <div class="well"> 
-										   <form class="form-horizontal" role="form">
-											<h4>Que estas pensando?</h4>
-											 <div class="form-group" style="padding:14px;">
-											  <textarea class="form-control" placeholder=""></textarea>
-											</div>
-											<button class="btn btn-primary pull-right" type="button">Publicar</button><ul class="list-inline"><li><a href=""><i class="glyphicon glyphicon-upload"></i></a></li><li><a href=""><i class="glyphicon glyphicon-map-marker"></i></a></li></ul>
-										  </form>
-									  </div>
-								   
-									
-									   <div class="panel panel-default">
-										 <div class="panel-heading"><p>
-											<img src="../public/assets/img/uFp_tsTJboUY7kue5XAsGAs28.png" height="28px" width="28px">
-										  </p></div>
-										  <div class="panel-body">
-										 
-											<div class="clearfix"></div>
-											
-											
-											<p>Hola Mundo!</p>
-											
-											<hr>
-											<form>
-											<div class="input-group">
-											  <div class="input-group-btn">
-												  <button class="btn btn-default">Like</button><button class="btn btn-default">Comentar</button>
-											  </div>
-											  <input class="form-control" placeholder="Agregar un comentario" type="text">
-											</div>
-											</form>
-											
-										  </div>
-									   </div>
 
-									
-								  </div>
-							   </div><!--/row-->
-							 
-							  
-							  <hr>
-							
-							  <hr>
-							
-							  
-							</div><!-- /col-9 -->
-						</div><!-- /padding -->
-					</div>
-					<!-- /main -->
-				  
-				</div>
-			</div>
-		</div>
+    <section>
+      <div class="container">
+        <div class="row">
+          <div class="col-12 text-center">
+            <h2>Albunes</h2>
+
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6 col-12 text-center">
+            <img class="img-fluid" src="../public/images/400x400.gif" alt="">
+            <h4>Descripcion</h4>
+
+          </div>
+          <div class="col-md-6 col-12 text-center mt-md-0 mt-2">
+            <img class="img-fluid" src="../public/images/400x400.gif" alt="">
+              <h4>Descripcion</h4>
+
+          </div>
+        </div>
+
+        <hr>
+
+      </div>
+    </section>
 		<!--post modal-->
 		<div id="postModal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
 		  <div class="modal-dialog">
 		  <div class="modal-content">
 			  <div class="modal-header">
 				  <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
-					
+
 			  </div>
 			  <div class="modal-body">
 				  <form class="form center-block">
@@ -155,12 +97,12 @@
 				  <div>
 				  <button class="btn btn-primary btn-sm" data-dismiss="modal" aria-hidden="true">Publicar</button>
 					<ul class="pull-left list-inline"><li><a href=""><i class="glyphicon glyphicon-upload"></i></a></li><li><a href=""><i class="glyphicon glyphicon-camera"></i></a></li><li><a href=""><i class="glyphicon glyphicon-map-marker"></i></a></li></ul>
-				  </div>	
+				  </div>
 			  </div>
 		  </div>
 		  </div>
 		</div>
-       
+
         <script type="text/javascript" src="../public/assets/js/jquery.js"></script>
         <script type="text/javascript" src="../public/assets/js/bootstrap.js"></script>
         <script type="text/javascript">
@@ -175,5 +117,5 @@
 			});
         });
         </script>
-</body>
+         </body>
 </html>
