@@ -1,7 +1,7 @@
 package Dao;
 
 import Hibernate.HibernateUtil;
-import encapsulation.Post;
+//import encapsulation.Post;
 import encapsulation.Profile;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
