@@ -5,7 +5,9 @@ import freemarker.template.Configuration;
 import freemarker.template.Version;
 
 import services.ConnectionService;
+
 import java.sql.SQLException;
+
 import spark.template.freemarker.FreeMarkerEngine;
 
 import static spark.Spark.staticFileLocation;

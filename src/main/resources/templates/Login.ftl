@@ -33,6 +33,8 @@
                         <button type="submit" class="btn btn-primary">Ingresar</button>
                     </div>
                 </div>
+
+                <div class="text-right"><a href="/registrar">Registrar</a></div>
             </form> <!-- /form -->
 
 	<script src="/js/jquery.js"></script>
