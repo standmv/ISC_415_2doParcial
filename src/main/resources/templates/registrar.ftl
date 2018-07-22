@@ -51,7 +51,7 @@
 	</div>
   </div>
 							<div class="form-group">
-    <label for="inputAddress" class="col-sm-3 control-label">Etudie en</label>
+    <label for="inputAddress" class="col-sm-3 control-label">lugar de estudio</label>
 	<div class="col-sm-9">
     <input type="text" class="form-control" id="escuelas" placeholder="">
 	</div>
