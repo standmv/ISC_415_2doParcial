@@ -30,7 +30,6 @@ public class WebRoutes {
             if( user.getPassword().equals(password)) {
                 response.cookie("username", username, 604800);
             }
-            response.redirect("/");
 
             return new ModelAndView(attributes, "home.ftl");
         }, freeMarkerEngine);

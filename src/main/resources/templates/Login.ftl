@@ -18,7 +18,7 @@
                 <div class="form-group">
                     <label for="email" class="col-sm-3 control-label">Correo</label>
                     <div class="col-sm-9">
-                        <input type="email" id="email" placeholder="" class="form-control" name="username">
+                        <input type="text" id="email" placeholder="" class="form-control" name="username">
                     </div>
                 </div>
                 <div class="form-group">

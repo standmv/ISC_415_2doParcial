@@ -34,11 +34,31 @@
 
         <!-- List of XML mapping files -->
 
+        <mapping class="encapsulation.Friendship"/>
 
+        <mapping class="encapsulation.LikeDislike"/>
+
+        <mapping class="encapsulation.Notification"/>
+
+        <mapping class="encapsulation.Photo"/>
+
+        <mapping class="encapsulation.Post"/>
 
         <mapping class="encapsulation.Profile"/>
 
+        <mapping class="encapsulation.Tag"/>
+
+        <mapping class="encapsulation.Timeline"/>
+
         <mapping class="encapsulation.User"/>
+
+        <mapping class="encapsulation.Album"/>
+
+        <mapping class="encapsulation.Comment"/>
+
+        <mapping class="encapsulation.Event"/>
+
+        <mapping class="encapsulation.Wall"/>
 
 
 
