@@ -1,11 +1,9 @@
-package modelo;
+package encapsulation;//ubica ahora
 
-import java.io.Serializable;
-import javax.persistence.*;
-import org.hibernate.validator.constraints.NotEmpty;
 import org.hibernate.annotations.Where;
-import java.sql.Blob;
-import java.sql.Date;
+
+import javax.persistence.*;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 

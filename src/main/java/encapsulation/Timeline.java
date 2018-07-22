@@ -1,4 +1,4 @@
-package modelo;
+package encapsulation;
 
 import org.hibernate.annotations.Where;
 

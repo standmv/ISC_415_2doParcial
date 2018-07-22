@@ -1,9 +1,8 @@
-package modelo;
+package encapsulation;
 
-import javax.persistence.*;
-import org.hibernate.validator.constraints.NotEmpty;
 import org.hibernate.annotations.Where;
 
+import javax.persistence.*;
 import java.io.Serializable;
 
 @Entity(name = "LikeDislike")
