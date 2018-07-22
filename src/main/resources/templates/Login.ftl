@@ -12,7 +12,7 @@
 <script src="/js/bootstrap.js"></script>
 <script src="/js/jquery.js"></script>
 
-            <form class="form-horizontal" role="form">
+            <form class="form-horizontal" role="form" method="post" action="/login">
                 <h2 class="text-center">Login</h2>
 
                 <div class="form-group">
