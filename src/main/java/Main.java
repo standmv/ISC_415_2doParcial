@@ -1,4 +1,9 @@
+import Dao.ProfileDaoImpl;
+import Dao.UserDaoImpl;
+import Hibernate.HibernateUtil;
 import Routes.WebRoutes;
+import encapsulation.Profile;
+import encapsulation.User;
 import freemarker.template.Configuration;
 
 
@@ -18,16 +23,32 @@ public class Main {
 
     public static void main(String[] args) {
 
+        UserDaoImpl usuarioadmin = new UserDaoImpl(User.class);
+        ProfileDaoImpl profileadmin = new ProfileDaoImpl(Profile.class);
 
-
-        /*try{
+        try{
             ConnectionService.startDb();
         }
         catch (SQLException e){
 
             e.printStackTrace();
         }
-        */
+
+        HibernateUtil.buildSessionFactory().openSession().close();
+        User temp = usuarioadmin.searchByUsername("admin");
+        System.out.println(temp);
+        if(temp == null){
+            System.out.println("hola");
+            User usuarioPorDefecto = new User(1, "admin", "admin", "admin@gwebmaster.me",true,null,null,null);
+            usuarioadmin.add(usuarioPorDefecto);
+            Profile perfil = new Profile();
+            perfil.setUser(usuarioPorDefecto);
+            profileadmin.add(perfil);
+
+
+        }
+
+        HibernateUtil.openSession().close();
 
         final Configuration configuration = new Configuration(new Version(2, 3, 26));
 
