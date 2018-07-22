@@ -22,7 +22,16 @@ public class WebRoutes {
 
         get("/", (request, response) -> {
             Map<String, Object> attributes = new HashMap<>();
-            return new ModelAndView(attributes, "login.ftl");//login
+            User user = new User();
+
+            if(request.cookie("username")!=null){
+
+                user = usuarioDao.searchByUsername(request.cookie("username"));
+                response.redirect("/login");
+
+
+            }
+            return new ModelAndView(attributes, "home.ftl");//login
         }, freeMarkerEngine);
 
         post("/login", (request, response) -> {
@@ -36,6 +45,12 @@ public class WebRoutes {
             }
 
             return new ModelAndView(attributes, "home.ftl");
+        }, freeMarkerEngine);
+
+        get("/login", (request, response) -> {
+            Map<String, Object> attributes = new HashMap<>();
+
+            return new ModelAndView(attributes, "login.ftl");
         }, freeMarkerEngine);
 
         get("/signup", (request, response) -> {
