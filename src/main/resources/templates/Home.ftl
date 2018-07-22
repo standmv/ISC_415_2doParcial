@@ -5,11 +5,11 @@
         <meta charset="utf-8">
         <title>Home</title>
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-          <link href="../public/assets/css/bootstrap.css" rel="stylesheet">
+          <link href="/css/bootstrap.css" rel="stylesheet">
         <!--[if lt IE 9]>
           <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
         <![endif]-->
-        <link href="../public/assets/css/facebook.css" rel="stylesheet">
+        <link href="/css/facebook.css" rel="stylesheet">
 
     </head>
 
@@ -160,8 +160,8 @@
 		  </div>
 		</div>
 
-        <script type="text/javascript" src="../public/assets/js/jquery.js"></script>
-        <script type="text/javascript" src="../public/assets/js/bootstrap.js"></script>
+        <script type="text/javascript" src="/js/jquery.js"></script>
+        <script type="text/javascript" src="/js/bootstrap.js"></script>
         <script type="text/javascript">
         $(document).ready(function() {
 			$('[data-toggle=offcanvas]').click(function() {

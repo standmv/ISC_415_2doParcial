@@ -7,10 +7,10 @@
 
 <body>
 
-<link href="../public/assets/css/bootstrap.css" rel="stylesheet">
-<link href="../public/assets/css/estilos.css" rel="stylesheet">
-<script src="../public/assets/js/bootstrap.js"></script>
-<script src="../public/assets/js/jquery.js"></script>
+<link href="/css/bootstrap.css" rel="stylesheet">
+<link href="/css/estilos.css" rel="stylesheet">
+<script src="/js/bootstrap.js"></script>
+<script src="/js/jquery.js"></script>
 
             <form class="form-horizontal" role="form">
                 <h2 class="text-center">Login</h2>
@@ -35,7 +35,7 @@
                 </div>
             </form> <!-- /form -->
 
-	<script src="../public/assets/js/jquery.js"></script>
-		<script src="../public/assets/js/bootstrap.min.js"></script>
+	<script src="/js/jquery.js"></script>
+		<script src="/js/bootstrap.min.js"></script>
 </body>
 </html>
