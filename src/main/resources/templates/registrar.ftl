@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <title>Registrar</title>
-<link href="../public/assets/css/bootstrap.css" rel="stylesheet">
-<link href="../public/assets/css/estilos.css" rel="stylesheet">
+<link href="/css/bootstrap.css" rel="stylesheet">
+<link href="/css/estilos.css" rel="stylesheet">
 
 </head>
 
@@ -380,7 +380,7 @@
                 </div>
             </form> <!-- /form -->
 
-	<script src="../public/assets/js/bootstrap.js"></script>
-<script src="../public/assets/js/jquery.js"></script>
+	<script src="/js/bootstrap.js"></script>
+<script src="/js/jquery.js"></script>
 </body>
 </html>

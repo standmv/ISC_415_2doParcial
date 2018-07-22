@@ -15,5 +15,10 @@ public class WebRoutes {
             Map<String, Object> attributes = new HashMap<>();
             return new ModelAndView(attributes, "login.ftl");
         }, freeMarkerEngine);
+
+        get("/signup", (request, response) -> {
+            Map<String, Object> attributes = new HashMap<>();
+            return new ModelAndView(attributes, "registrar.ftl");
+        }, freeMarkerEngine);
     }
 }

@@ -95,7 +95,7 @@
 
 									   <div class="panel panel-default">
 										 <div class="panel-heading"><p>
-											<img src="../public/assets/img/uFp_tsTJboUY7kue5XAsGAs28.png" height="28px" width="28px">
+											<img src="/img/uFp_tsTJboUY7kue5XAsGAs28.png" height="28px" width="28px">
 										  </p></div>
 										  <div class="panel-body">
 
