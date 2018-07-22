@@ -30,7 +30,7 @@
 								<span class="icon-bar"></span>
 								<span class="icon-bar"></span>
 							  </button>
-							  <a href="#" class="navbar-brand logo">P</a>
+							  <a href="/home" class="navbar-brand logo">P</a>
 							</div>
 							<nav class="collapse navbar-collapse" role="navigation">
 							<form class="navbar-form navbar-left">
@@ -43,7 +43,7 @@
 							</form>
 							<ul class="nav navbar-nav">
 							  <li>
-								<a href="#"><i class="glyphicon glyphicon-home"></i> Home</a>
+								<a href="/home"><i class="glyphicon glyphicon-home"></i> Home</a>
 							  </li>
 							  <li>
 								<a href="#postModal" role="button" data-toggle="modal"><i class="glyphicon glyphicon-plus"></i> Publicar</a>
@@ -56,8 +56,8 @@
 								<a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="glyphicon glyphicon-user"></i></a>
 								<ul class="dropdown-menu">
 								 <li><a href="">Perfil</a></li>
-									<li><a href="">Fotos</a></li>
-									<li><a href="">Informacion</a></li>
+									<li><a href="/album">Fotos</a></li>
+									<li><a href="/informacion">Informacion</a></li>
 								  <li><a href="">Salir</a></li>
 								</ul>
 							  </li>

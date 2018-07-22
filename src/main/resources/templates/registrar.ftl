@@ -329,7 +329,7 @@
                     </div>
                 </div> <!-- /.form-group -->
                 <div class="form-group">
-                    <label class="control-label col-sm-3">Genero</label>
+                    <label class="control-label col-sm-3">Sexo</label>
                     <div class="col-sm-6">
                         <div class="row">
                             <div class="col-sm-4">
