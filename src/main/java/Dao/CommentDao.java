@@ -1,6 +1,6 @@
 package Dao;
 
-import modelo.Comment;
+import encapsulation.Comment;
 
 import java.util.List;
 

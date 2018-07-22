@@ -1,7 +1,7 @@
 package Dao;
 
-import hibernate.HibernateUtil;
-import modelo.Tag;
+import Hibernate.HibernateUtil;
+import encapsulation.Tag;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.Transaction;

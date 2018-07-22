@@ -1,7 +1,7 @@
 package Dao;
 
-import hibernate.HibernateUtil;
-import modelo.Album;
+import Hibernate.HibernateUtil;
+import encapsulation.Album;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.Transaction;

@@ -1,6 +1,6 @@
 package Dao;
 
-import modelo.Post;
+import encapsulation.Post;
 
 import java.util.List;
 

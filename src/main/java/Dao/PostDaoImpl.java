@@ -1,7 +1,7 @@
 package Dao;
 
-import hibernate.HibernateUtil;
-import modelo.*;
+import Hibernate.HibernateUtil;
+import encapsulation.*;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
@@ -12,7 +12,7 @@ import org.slf4j.LoggerFactory;
 import java.time.LocalDate;
 import java.util.List;
 
-import static hibernate.HibernateUtil.getSession;
+import static Hibernate.HibernateUtil.getSession;
 
 public class PostDaoImpl extends Repositorio<Post, Integer> implements PostDao {
 

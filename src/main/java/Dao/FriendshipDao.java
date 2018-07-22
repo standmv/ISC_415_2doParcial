@@ -1,6 +1,6 @@
 package Dao;
 
-import modelo.Friendship;
+import encapsulation.Friendship;
 
 import java.util.List;
 

@@ -1,6 +1,6 @@
 package Dao;
 
-import modelo.Notification;
+import encapsulation.Notification;
 
 import java.util.List;
 

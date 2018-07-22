@@ -1,7 +1,7 @@
 package Dao;
 
-import hibernate.HibernateUtil;
-import modelo.Timeline;
+import Hibernate.HibernateUtil;
+import encapsulation.Timeline;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.Transaction;

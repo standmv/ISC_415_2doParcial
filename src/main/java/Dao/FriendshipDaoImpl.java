@@ -1,8 +1,8 @@
 package Dao;
 
-import hibernate.HibernateUtil;
-import modelo.Friendship;
-import modelo.User;
+import Hibernate.HibernateUtil;
+import encapsulation.Friendship;
+import encapsulation.User;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
@@ -13,7 +13,7 @@ import org.slf4j.LoggerFactory;
 import java.util.ArrayList;
 import java.util.List;
 
-import static hibernate.HibernateUtil.getSession;
+import static Hibernate.HibernateUtil.getSession;
 
 public class FriendshipDaoImpl extends Repositorio<Friendship, Integer> implements FriendshipDao {
 

@@ -1,8 +1,8 @@
 package Dao;
 
-import hibernate.HibernateUtil;
-import modelo.Notification;
-import modelo.User;
+import Hibernate.HibernateUtil;
+import encapsulation.Notification;
+import encapsulation.User;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.Transaction;

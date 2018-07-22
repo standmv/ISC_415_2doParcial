@@ -1,6 +1,6 @@
 package Dao;
 
-import modelo.Wall;
+import encapsulation.Wall;
 
 import java.util.List;
 

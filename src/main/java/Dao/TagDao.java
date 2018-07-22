@@ -1,6 +1,6 @@
 package Dao;
 
-import modelo.Tag;
+import encapsulation.Tag;
 
 import java.util.List;
 

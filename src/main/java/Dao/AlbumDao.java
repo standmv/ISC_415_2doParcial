@@ -1,6 +1,6 @@
 package Dao;
 
-import modelo.Album;
+import encapsulation.Album;
 
 import java.util.List;
 

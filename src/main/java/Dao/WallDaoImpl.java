@@ -1,7 +1,7 @@
 package Dao;
 
-import hibernate.HibernateUtil;
-import modelo.Wall;
+import Hibernate.HibernateUtil;
+import encapsulation.Wall;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
@@ -11,7 +11,7 @@ import org.slf4j.LoggerFactory;
 
 import java.util.List;
 
-import static hibernate.HibernateUtil.getSession;
+import static Hibernate.HibernateUtil.getSession;
 
 public class WallDaoImpl extends Repositorio<Wall, Integer> implements WallDao{
 

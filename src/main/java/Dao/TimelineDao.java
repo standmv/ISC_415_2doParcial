@@ -1,6 +1,6 @@
 package Dao;
 
-import modelo.Timeline;
+import encapsulation.Timeline;
 
 import java.util.List;
 

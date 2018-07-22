@@ -1,6 +1,6 @@
 package Dao;
 
-import modelo.Event;
+import encapsulation.Event;
 
 import java.util.List;
 
