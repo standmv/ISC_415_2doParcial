@@ -14,66 +14,74 @@
                 <div class="form-group">
                     <label for="firstName" class="col-sm-3 control-label">Nombre</label>
                     <div class="col-sm-9">
-                        <input type="text" id="Name" placeholder="" class="form-control" autofocus>
+                        <input type="text" id="Name" name="nombre" placeholder="" class="form-control" autofocus>
 
                     </div>
                 </div>
 				<div class="form-group">
                     <label for="firstName" class="col-sm-3 control-label">Apellido</label>
                     <div class="col-sm-9">
-                        <input type="text" id="lastName" placeholder="" class="form-control" autofocus>
+                        <input type="text" id="lastName" name="apellido" placeholder="" class="form-control" autofocus>
+
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="firstName" class="col-sm-3 control-label">Username</label>
+                    <div class="col-sm-9">
+                        <input type="text" id="username" name="username" placeholder="" class="form-control" autofocus>
 
                     </div>
                 </div>
                 <div class="form-group">
                     <label for="email" class="col-sm-3 control-label">Correo</label>
                     <div class="col-sm-9">
-                        <input type="email" id="email" placeholder="" class="form-control">
+                        <input type="email" id="email" name="email" placeholder="" class="form-control">
                     </div>
                 </div>
                 <div class="form-group">
                     <label for="password" class="col-sm-3 control-label">Contraseña</label>
                     <div class="col-sm-9">
-                        <input type="password" id="password" placeholder="" class="form-control">
+                        <input type="password" id="password" name="password" placeholder="" class="form-control">
                     </div>
                 </div>
                 <div class="form-group">
                     <label for="birthDate" class="col-sm-3 control-label">Fecha Nacimiento</label>
                     <div class="col-sm-9">
-                        <input type="date" id="birthDate" class="form-control">
+                        <input type="date" id="birthDate" name="fechanacimiento" class="form-control">
                     </div>
                 </div>
 
 				<div class="form-group">
     <label for="inputAddress" class="col-sm-3 control-label">Ciudad de Nacimiento</label>
 	 <div class="col-sm-9">
-    <input type="text" class="form-control" id="iAddress" placeholder="">
+    <input type="text" class="form-control" id="iAddress" name="ciudadnacimiento" placeholder="">
 	</div>
   </div>
 							<div class="form-group">
     <label for="inputAddress" class="col-sm-3 control-label">lugar de estudio</label>
 	<div class="col-sm-9">
-    <input type="text" class="form-control" id="escuelas" placeholder="">
+    <input type="text" class="form-control" id="escuelas" name="lugarnacimiento" placeholder="">
 	</div>
   </div>
 
 				<div class="form-group">
     <label for="inputAddress" class="col-sm-3 control-label">Dirección</label>
 	<div class="col-sm-9">
-    <input type="text" class="form-control" id="inputAddress" placeholder="">
+    <input type="text" class="form-control" id="inputAddress" name="direccion" placeholder="">
 	</div>
   </div>
 							<div class="form-group">
     <label for="inputAddress" class="col-sm-3 control-label">Trabajo</label>
 	<div class="col-sm-9">
-    <input type="text" class="form-control" id="trabajo" placeholder="">
+    <input type="text" class="form-control" id="trabajo" name="trabajo" placeholder="">
 	</div>
   </div>
 
                 <div class="form-group">
                     <label for="country" class="col-sm-3 control-label">Pais</label>
                     <div class="col-sm-9">
-                        <select id="country" class="form-control">
+                        <select id="country" name="pais" class="form-control">
 
 	<option value="AF">Afghanistan</option>
 	<option value="AX">Åland Islands</option>
@@ -334,18 +342,18 @@
                         <div class="row">
                             <div class="col-sm-4">
                                 <label class="radio-inline">
-                                    <input type="radio" id="femaleRadio" value="Female">Mujer
+                                    <input type="radio" id="femaleRadio" name="sexo" value="mujer">Mujer
                                 </label>
                             </div>
                             <div class="col-sm-4">
                                 <label class="radio-inline">
-                                    <input type="radio" id="maleRadio" value="Male">Hombre
+                                    <input type="radio" id="maleRadio" name="sexo" value="hombre">Hombre
                                 </label>
                             </div>
 
                         </div>
                     </div>
-                </div> <!-- /.form-group -->
+                </div> <!--
               <div class="form-group">
                     <label class="control-label col-sm-3">Privilegios</label>
                     <div class="col-sm-6">
@@ -363,7 +371,7 @@
 
                         </div>
                     </div>
-                </div> <!-- /.form-group -->
+                </div>  
                 <div class="form-group">
                     <div class="col-sm-9 col-sm-offset-3">
                         <div class="checkbox">
@@ -372,7 +380,7 @@
                             </label>
                         </div>
                     </div>
-                </div> <!-- /.form-group -->
+                </div> -->
                 <div class="form-group">
                     <div class="col-sm-9 col-sm-offset-3">
                         <button type="submit" class="btn btn-primary">Registrar</button>
