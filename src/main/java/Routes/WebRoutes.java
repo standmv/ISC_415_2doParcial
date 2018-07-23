@@ -73,18 +73,11 @@ public class WebRoutes {
             usuarioDao.getProfile(usuario).setDireccion(map.get("ciudad").value());
             java.util.Date fechanacimiento = format.parse(request.queryParams("fechanacimiento"));
             usuarioDao.getProfile(usuario).setLugarestudio(map.get("lugarestudio").value());
-            usuarioDao.getProfile(usuario).setTrabajo(map.get("lugartrabajo").value());
-            usuarioDao.getProfile(usuario.getId()).setSexo(map.get("sexo").value());
-            if(request.queryParams("rol")!=null){
-                if(request.queryParams("rol").equals( "administrator")){
-
-                    usuario.setPriviledge(true);
-                }
-
-                else{
-                    usuario.setPriviledge(false);
-                }}
-
+            usuarioDao.getProfile(usuario).setTrabajo(map.get("trabajo").value());
+            usuarioDao.getProfile(usuario).setSexo(map.get("sexo").value());
+            usuarioDao.getProfile(usuario).setPais(map.get("pais").value());
+            usuarioDao.getProfile(usuario).setCiudadnacimiento(map.get("ciudadnacimiento").value());
+            usuario.setPriviledge(false);
             UserDaoImpl userDao = null;
 
             if(userDao.searchByUsername(usuario.getUsername())==null){

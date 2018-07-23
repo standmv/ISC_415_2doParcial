@@ -32,6 +32,9 @@ public class Profile implements Serializable {
     @Column(name = "ciudadnacimiento")
     private String ciudadnacimiento;
 
+    @Column(name = "pais")
+    private String pais;
+
     @Column(name = "direccion")
     private String direccion;
 
@@ -41,11 +44,8 @@ public class Profile implements Serializable {
     @Column(name = "trabajo")
     private String trabajo;
 
-    @Column(name = "pais")
-    private String pais;
-
     @Column(name = "sexo")
-    private Character sexo;
+    private String sexo;
 
     @OneToOne(fetch = FetchType.LAZY)
     @MapsId
@@ -57,7 +57,7 @@ public class Profile implements Serializable {
         super();
     }
     public Profile(int id, String nombre, String apellido, Date fechanacimiento, String ciudadnacimiento,
-                   String direccion, String lugarestudio, String trabajo, String pais, Character sexo) {
+                   String direccion, String lugarestudio, String trabajo, String pais, String sexo) {
         this.id = id;
         this.nombre = nombre;
         this.apellido = apellido;
@@ -65,6 +65,7 @@ public class Profile implements Serializable {
         this.ciudadnacimiento = ciudadnacimiento;
         this.direccion = direccion;
         this.lugarestudio = lugarestudio;
+        this.pais = pais;
         this.trabajo = trabajo;
         this.pais = pais;
         this.sexo = sexo;
@@ -142,11 +143,11 @@ public class Profile implements Serializable {
         this.pais = pais;
     }
 
-    public Character getSexo() {
+    public String getSexo() {
         return sexo;
     }
 
-    public void setSexo(Character sexo) {
+    public void setSexo(String sexo) {
         this.sexo = sexo;
     }
 
