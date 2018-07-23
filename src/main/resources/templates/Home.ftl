@@ -83,12 +83,12 @@
 
 
 									  <div class="well">
-										   <form class="form-horizontal" role="form" method='post' enctype='multipart/form-data'>
+										   <form class="form-horizontal" role="form" method='post' enctype='multipart/form-data' action="/addPost">
 											<h4>Que estas pensando?</h4>
 											 <div class="form-group" style="padding:14px;">
 											  <textarea class="form-control" placeholder=""></textarea>
-											</div><input type='file' name='post'>
-											<button class="btn btn-primary pull-right" type="button">Publicar</button><ul class="list-inline"><li><a href=""><i class="glyphicon glyphicon-upload"></i></a></li><li><a href=""><i class="glyphicon glyphicon-map-marker"></i></a></li></ul>
+											</div><input type='file' name='text'>
+											<button class="btn btn-primary pull-right" type="submit">Publicar</button><ul class="list-inline"><li><a href=""><i class="glyphicon glyphicon-upload"></i></a></li><li><a href=""><i class="glyphicon glyphicon-map-marker"></i></a></li></ul>
 										  </form>
 									  </div>
 

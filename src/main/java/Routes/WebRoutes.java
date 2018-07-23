@@ -7,7 +7,9 @@ import Dao.*;
 import spark.template.freemarker.FreeMarkerEngine;
 
 import encapsulation.*;
+import Dao.*;
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -16,9 +18,13 @@ public class WebRoutes {
     public WebRoutes(final FreeMarkerEngine freeMarkerEngine){
         UserDaoImpl usuarioDao;
         ProfileDaoImpl profileDao;
+        WallDaoImpl wallDao;
+        PostDaoImpl postDao;
 
         usuarioDao = new UserDaoImpl(User.class);
         profileDao = new ProfileDaoImpl(Profile.class);
+        wallDao = new WallDaoImpl(Wall.class);
+        postDao = new PostDaoImpl(Post.class);
 
         get("/", (request, response) -> {
             Map<String, Object> attributes = new HashMap<>();
@@ -94,6 +100,35 @@ public class WebRoutes {
 
         });
 
+        post("/addPost", (request, response) -> {
+
+            QueryParamsMap map = request.queryMap();
+            boolean autenticado=false;
+            Integer id;
+            Post post = new Post();
+            User usuario = new User();
+
+            if(request.cookie("username")!=null)
+            {autenticado=true;
+                usuario = usuarioDao.searchByUsername(request.cookie("username"));
+
+
+            }
+            else if(usuarioDao.searchByUsername(request.session().attribute("username"))!=null && request.cookie("username")==null){
+                autenticado=true;
+                usuario = usuarioDao.searchByUsername(request.session().attribute("username"));}
+
+            post.setFecha(LocalDate.now());
+            post.setLikes(0);
+            post.setTexto(map.get("texto").value());
+            post.setUser(usuario);
+            post.setWall(wallDao.findWallByUser(usuario.getId()));
+
+            postDao.add(post);
+            response.redirect("/");
+
+            return "Ok";
+        });
 
         /*
         get("/home", (request, response) -> {
