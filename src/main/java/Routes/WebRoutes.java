@@ -78,16 +78,6 @@ public class WebRoutes {
             usuarioDao.getProfile(usuario).setPais(map.get("pais").value());
             usuarioDao.getProfile(usuario).setCiudadnacimiento(map.get("ciudadnacimiento").value());
             usuario.setPriviledge(false);
-
-            if(request.queryParams("rol")!=null){
-                if(request.queryParams("rol").equals( "administrator")){
-
-                    usuario.setPriviledge(true);
-                }
-
-                else{
-                    usuario.setPriviledge(false);
-                }}
             UserDaoImpl userDao = null;
 
             if(userDao.searchByUsername(usuario.getUsername())==null){
