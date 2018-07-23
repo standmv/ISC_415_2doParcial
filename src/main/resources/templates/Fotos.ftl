@@ -63,13 +63,13 @@
         </div>
         <div class="row">
           <div class="col-md-6 col-12 text-center">
-            <img class="img-fluid" src="../public/assets/images/400x400.gif"  alt="">
+            <img class="img-fluid" src="/images/400x400.gif"  alt="">
             <h4>Descripcion</h4>
 <a href="#" class="btn btn-primary btn-lg disabled" tabindex="-1" role="button" aria-disabled="true"><i><span class="glyphicon glyphicon-plus"></span></i></a>
 <a href="#" class="btn btn-primary btn-lg disabled" tabindex="-1" role="button" aria-disabled="true"><i><span class="glyphicon glyphicon-eye-open"></span></i></a>
           </div>
           <div class="col-md-6 col-12 text-center mt-md-0 mt-2">
-            <img class="img-fluid" src="../public/assets/images/400x400.gif" alt="">
+            <img class="img-fluid" src="/images/400x400.gif" alt="">
               <h4>Descripcion</h4>
 			  <a href="#" class="btn btn-primary btn-lg disabled" tabindex="-1" role="button" aria-disabled="true"><i><span class="glyphicon glyphicon-plus"></span></i></a>
 <a href="#" class="btn btn-primary btn-lg disabled" tabindex="-1" role="button" aria-disabled="true"><i><span class="glyphicon glyphicon-eye-open"></span></i></a>
