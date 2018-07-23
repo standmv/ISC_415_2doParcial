@@ -24,13 +24,14 @@ public class WebRoutes {
             Map<String, Object> attributes = new HashMap<>();
             User user = new User();
 
-            if(request.cookie("username")!=null){
+            if(request.cookie("username")==null){
 
-                user = usuarioDao.searchByUsername(request.cookie("username"));
+
                 response.redirect("/login");
 
 
             }
+            user = usuarioDao.searchByUsername(request.cookie("username"));
             return new ModelAndView(attributes, "home.ftl");//login
         }, freeMarkerEngine);
 

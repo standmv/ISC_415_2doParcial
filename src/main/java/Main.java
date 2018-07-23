@@ -36,9 +36,9 @@ public class Main {
 
         HibernateUtil.buildSessionFactory().openSession().close();
         User temp = usuarioadmin.searchByUsername("admin");
-        System.out.println(temp);
+
         if(temp == null){
-            System.out.println("hola");
+
             User usuarioPorDefecto = new User(1, "admin", "admin", "admin@gwebmaster.me",true,null,null,null);
             usuarioadmin.add(usuarioPorDefecto);
             Profile perfil = new Profile();
