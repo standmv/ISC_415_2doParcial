@@ -93,10 +93,6 @@
 									  </div>
 
 
-                                          <input type='file' name='uploaded_file'>
-
-
-
 
 									   <div class="panel panel-default">
 										 <div class="panel-heading"><p>

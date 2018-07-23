@@ -67,7 +67,7 @@
 <div class="col-sm-6">
   <div>
     <!-- Profile photo -->
-    <img src="../public/AboutPageAssets/images/profilephoto.png" alt="sample" width="150" height="250">
+    <img src="/images/profilephoto.png" alt="sample" width="150" height="250">
 	  <div><h3>JOHN DOE</h3> </div>
 
 </div>
