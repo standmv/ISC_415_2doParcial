@@ -9,7 +9,7 @@
 </head>
 
 <body>
-            <form class="form-horizontal" role="form">
+            <form class="form-horizontal" role="form" method="post" action="/registrarse">
                 <h2 class="text-center">Registrar</h2>
                 <div class="form-group">
                     <label for="firstName" class="col-sm-3 control-label">Nombre</label>
@@ -371,7 +371,7 @@
 
                         </div>
                     </div>
-                </div>  
+                </div>
                 <div class="form-group">
                     <div class="col-sm-9 col-sm-offset-3">
                         <div class="checkbox">
