@@ -136,15 +136,17 @@
 					</div>
 				  </form>
 			  </div>
-			  <div class="modal-footer">
-				  <div>
-				  <button class="btn btn-primary btn-sm" data-dismiss="modal" aria-hidden="true">Publicar</button>
-					<ul class="pull-left list-inline"><li><a href=""><i class="glyphicon glyphicon-upload"></i></a></li><li><a href=""><i class="glyphicon glyphicon-camera"></i></a></li><li><a href=""><i class="glyphicon glyphicon-map-marker"></i></a></li></ul>
-				  </div>
-			  </div>
-		  </div>
-		  </div>
-		</div>
+              <div class="modal-footer">
+                  <div>
+                      <form method='post' enctype='multipart/form-data'>
+                          <button class="btn btn-primary btn-sm" data-dismiss="modal" aria-hidden="true">Publicar</button>
+                          <ul class="pull-left list-inline"><li><a href="#"><input type='file' name='post'><i class="glyphicon glyphicon-upload"></i></a></li><li><a href=""><i class="glyphicon glyphicon-camera"></i></a></li><li><a href=""><i class="glyphicon glyphicon-map-marker"></i></a></li></ul>
+                      </form></div>
+              </div>
+
+          </div>
+          </div>
+        </div>
 
         <script type="text/javascript" src="/js/jquery.js"></script>
         <script type="text/javascript" src="/js/bootstrap.js"></script>

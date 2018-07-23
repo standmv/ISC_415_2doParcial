@@ -83,14 +83,19 @@
 
 
 									  <div class="well">
-										   <form class="form-horizontal" role="form">
+										   <form class="form-horizontal" role="form" method='post' enctype='multipart/form-data'>
 											<h4>Que estas pensando?</h4>
 											 <div class="form-group" style="padding:14px;">
 											  <textarea class="form-control" placeholder=""></textarea>
-											</div>
+											</div><input type='file' name='post'>
 											<button class="btn btn-primary pull-right" type="button">Publicar</button><ul class="list-inline"><li><a href=""><i class="glyphicon glyphicon-upload"></i></a></li><li><a href=""><i class="glyphicon glyphicon-map-marker"></i></a></li></ul>
 										  </form>
 									  </div>
+
+
+                                          <input type='file' name='uploaded_file'>
+
+
 
 
 									   <div class="panel panel-default">
@@ -152,10 +157,12 @@
 			  </div>
 			  <div class="modal-footer">
 				  <div>
+                      <form method='post' enctype='multipart/form-data'>
 				  <button class="btn btn-primary btn-sm" data-dismiss="modal" aria-hidden="true">Publicar</button>
-					<ul class="pull-left list-inline"><li><a href=""><i class="glyphicon glyphicon-upload"></i></a></li><li><a href=""><i class="glyphicon glyphicon-camera"></i></a></li><li><a href=""><i class="glyphicon glyphicon-map-marker"></i></a></li></ul>
-				  </div>
+					<ul class="pull-left list-inline"><li><a href="#"><input type='file' name='post'><i class="glyphicon glyphicon-upload"></i></a></li><li><a href=""><i class="glyphicon glyphicon-camera"></i></a></li><li><a href=""><i class="glyphicon glyphicon-map-marker"></i></a></li></ul>
+				  </form></div>
 			  </div>
+
 		  </div>
 		  </div>
 		</div>
