@@ -100,7 +100,7 @@ public class WebRoutes {
 
         });
 
-        post("/addPost", (request, response) -> {
+        post("/createPost", (request, response) -> {
 
             QueryParamsMap map = request.queryMap();
             boolean autenticado=false;
@@ -135,7 +135,7 @@ public class WebRoutes {
             Map<String, Object> attributes = new HashMap<>();
             return new ModelAndView(attributes, "home.ftl");//home
         }, freeMarkerEngine);
-
+            */
         get("/informacion", (request, response) -> {
             Map<String, Object> attributes = new HashMap<>();
             return new ModelAndView(attributes, "informacion.ftl");//infomacion
@@ -146,7 +146,7 @@ public class WebRoutes {
             return new ModelAndView(attributes, "fotos.ftl");//fotos
         }, freeMarkerEngine);
 
-        */
+
 
 
     }

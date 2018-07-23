@@ -83,7 +83,7 @@
 
 
 									  <div class="well">
-										   <form class="form-horizontal" role="form" method='post' enctype='multipart/form-data' action="/addPost">
+										   <form class="form-horizontal" role="form" method='post' enctype='multipart/form-data' action="/createPost">
 											<h4>Que estas pensando?</h4>
 											 <div class="form-group" style="padding:14px;">
 											  <textarea class="form-control" placeholder=""></textarea>
