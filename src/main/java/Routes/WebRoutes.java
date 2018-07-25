@@ -54,6 +54,12 @@ public class WebRoutes {
             return new ModelAndView(attributes, "home.ftl");
         }, freeMarkerEngine);
 
+        get("/home", (request, response) -> {
+            Map<String, Object> attributes = new HashMap<>();
+            return new ModelAndView(attributes, "home.ftl");//home
+        }, freeMarkerEngine);
+
+
         get("/login", (request, response) -> {
             Map<String, Object> attributes = new HashMap<>();
 
