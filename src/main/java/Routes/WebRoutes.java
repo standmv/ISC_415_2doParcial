@@ -4,6 +4,7 @@ import encapsulation.User;
 import spark.ModelAndView;
 import spark.QueryParamsMap;
 import Dao.*;
+import spark.Session;
 import spark.template.freemarker.FreeMarkerEngine;
 
 import encapsulation.*;
@@ -52,6 +53,16 @@ public class WebRoutes {
             }
 
             return new ModelAndView(attributes, "home.ftl");
+        }, freeMarkerEngine);
+
+        get("/informacion", (request, response) -> {
+            Map<String, Object> attributes = new HashMap<>();
+            return new ModelAndView(attributes, "informacion.ftl");//infomacion
+        }, freeMarkerEngine);
+
+        get("/album", (request, response) -> {
+            Map<String, Object> attributes = new HashMap<>();
+            return new ModelAndView(attributes, "fotos.ftl");//fotos
         }, freeMarkerEngine);
 
         get("/home", (request, response) -> {
@@ -135,25 +146,20 @@ public class WebRoutes {
 
             return "Ok";
         });
+        //Rutas Logout
+        get("/logout", (request,response) ->{
+            Session session = request.session();
+            session.removeAttribute("username");
+            response.removeCookie("username");
+            response.redirect("/");
 
-        /*
-        get("/home", (request, response) -> {
             Map<String, Object> attributes = new HashMap<>();
-            return new ModelAndView(attributes, "home.ftl");//home
-        }, freeMarkerEngine);
-            */
-        get("/informacion", (request, response) -> {
-            Map<String, Object> attributes = new HashMap<>();
-            return new ModelAndView(attributes, "informacion.ftl");//infomacion
-        }, freeMarkerEngine);
 
-        get("/album", (request, response) -> {
-            Map<String, Object> attributes = new HashMap<>();
-            return new ModelAndView(attributes, "fotos.ftl");//fotos
-        }, freeMarkerEngine);
+            attributes.put("usuariodentro","Huesped");
+            attributes.put("admin", false);
+            attributes.put("autenticado", false);
 
-
-
-
+            return new ModelAndView(attributes, "login.ftl");
+        },freeMarkerEngine);
     }
 }
