@@ -54,7 +54,7 @@
                                     <li><a href="">Perfil</a></li>
                                     <li><a href="/album">Fotos</a></li>
                                     <li><a href="/informacion">Informacion</a></li>
-                                    <li><a href="">Salir</a></li>
+                                    <li><a href="/logout">Salir</a></li>
                                 </ul>
                             </li>
                         </ul>
