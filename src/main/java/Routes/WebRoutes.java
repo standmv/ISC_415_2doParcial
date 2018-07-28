@@ -13,6 +13,13 @@ import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.util.HashMap;
 import java.util.Map;
+import spark.utils.IOUtils;
+
+import javax.servlet.MultipartConfigElement;
+import javax.servlet.http.Part;
+import java.io.FileOutputStream;
+import java.io.InputStream;
+import java.io.OutputStream;
 
 import static spark.Spark.*;
 public class WebRoutes {
@@ -94,13 +101,13 @@ public class WebRoutes {
             usuarioDao.getProfile(usuario).setNombre(map.get("nombre").value());
             usuarioDao.getProfile(usuario).setApellido(map.get("apellido").value());
             usuarioDao.getProfile(usuario).setDireccion(map.get("ciudad").value());
-            java.util.Date fechanacimiento = format.parse(request.queryParams("fechanacimiento"));
+            //java.util.Date fechanacimiento = format.parse(request.queryParams("fechanacimiento"));
             usuarioDao.getProfile(usuario).setLugarestudio(map.get("lugarestudio").value());
             usuarioDao.getProfile(usuario).setTrabajo(map.get("trabajo").value());
             usuarioDao.getProfile(usuario).setSexo(map.get("sexo").value());
             usuarioDao.getProfile(usuario).setPais(map.get("pais").value());
             usuarioDao.getProfile(usuario).setCiudadnacimiento(map.get("ciudadnacimiento").value());
-            usuario.setPriviledge(false);
+            //usuario.setPriviledge(false);
             UserDaoImpl userDao = null;
 
             if(userDao.searchByUsername(usuario.getUsername())==null){
@@ -117,36 +124,23 @@ public class WebRoutes {
 
         });
 
-        post("/createPost", (request, response) -> {
-
-            QueryParamsMap map = request.queryMap();
-            boolean autenticado=false;
-            Integer id;
-            Post post = new Post();
-            User usuario = new User();
-
-            if(request.cookie("username")!=null)
-            {autenticado=true;
-                usuario = usuarioDao.searchByUsername(request.cookie("username"));
 
 
-            }
-            else if(usuarioDao.searchByUsername(request.session().attribute("username"))!=null && request.cookie("username")==null){
-                autenticado=true;
-                usuario = usuarioDao.searchByUsername(request.session().attribute("username"));}
+                post("/createPost", (req, res) -> {
+                    req.attribute("org.eclipse.jetty.multipartConfig", new MultipartConfigElement("D:/tmp"));
+                    Part filePart = req.raw().getPart("myfile");
 
-            post.setFecha(LocalDate.now());
-            post.setLikes(0);
-            post.setTexto(map.get("texto").value());
-            post.setUser(usuario);
-            post.setWall(wallDao.findWallByUser(usuario.getId()));
+                    try (InputStream inputStream = filePart.getInputStream()) {
+                        OutputStream outputStream = new FileOutputStream("D:/tmp/" + filePart.getSubmittedFileName());
+                        IOUtils.copy(inputStream, outputStream);
+                        outputStream.close();
+                    }
 
-            postDao.add(post);
-            response.redirect("/");
+                    return "File uploaded and saved.";
+                });
 
-            return "Ok";
-        });
-        //Rutas Logout
+
+
         get("/logout", (request,response) ->{
             Session session = request.session();
             session.removeAttribute("username");
@@ -159,7 +153,7 @@ public class WebRoutes {
             attributes.put("admin", false);
             attributes.put("autenticado", false);
 
-            return new ModelAndView(attributes, "login.ftl");
+            return new ModelAndView(attributes, "login.ftl"); //Rutas Logout
         },freeMarkerEngine);
     }
 }

@@ -88,7 +88,7 @@
 											 <div class="form-group" style="padding:14px;">
 											  <textarea class="form-control" placeholder=""></textarea>
 											</div>
-											<button class="btn btn-primary pull-right" type="submit">Publicar</button><input type='file' name='text'>
+											<button class="btn btn-primary pull-right" type="submit">Publicar</button><input type='file' name='publicar'>
 										  </form>
 									  </div>
 
