@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <!DOCTYPE hibernate-configuration PUBLIC
-        "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "-//Filters/Filters Configuration DTD 3.0//EN"
         "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
 
 <hibernate-configuration>
@@ -34,31 +34,31 @@
 
         <!-- List of XML mapping files -->
 
-        <mapping class="encapsulation.Friendship"/>
+        <mapping class="Encapsulation.Friendship"/>
 
-        <mapping class="encapsulation.LikeDislike"/>
+        <mapping class="Encapsulation.LikeDislike"/>
 
-        <mapping class="encapsulation.Notification"/>
+        <mapping class="Encapsulation.Notification"/>
 
-        <mapping class="encapsulation.Photo"/>
+        <mapping class="Encapsulation.Photo"/>
 
-        <mapping class="encapsulation.Post"/>
+        <mapping class="Encapsulation.Post"/>
 
-        <mapping class="encapsulation.Profile"/>
+        <mapping class="Encapsulation.Profile"/>
 
-        <mapping class="encapsulation.Tag"/>
+        <mapping class="Encapsulation.Tag"/>
 
-        <mapping class="encapsulation.Timeline"/>
+        <mapping class="Encapsulation.Timeline"/>
 
-        <mapping class="encapsulation.User"/>
+        <mapping class="Encapsulation.User"/>
 
-        <mapping class="encapsulation.Album"/>
+        <mapping class="Encapsulation.Album"/>
 
-        <mapping class="encapsulation.Comment"/>
+        <mapping class="Encapsulation.Comment"/>
 
-        <mapping class="encapsulation.Event"/>
+        <mapping class="Encapsulation.Event"/>
 
-        <mapping class="encapsulation.Wall"/>
+        <mapping class="Encapsulation.Wall"/>
 
 
 

@@ -1,64 +1,84 @@
-import Dao.ProfileDaoImpl;
-import Dao.UserDaoImpl;
-import Hibernate.HibernateUtil;
-import Routes.WebRoutes;
-import encapsulation.Profile;
-import encapsulation.User;
-import freemarker.template.Configuration;
+import Filters.Filtros;
+import Filters.ManejoExcepciones;
+import Routes.*;
+import Services.BootStrapServices;
+import Services.DB;
 
-
-import freemarker.template.Version;
-
-import services.ConnectionService;
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
 
 import java.sql.SQLException;
 
-import spark.template.freemarker.FreeMarkerEngine;
-
-import static spark.Spark.staticFileLocation;
+import static spark.Spark.port;
+import static spark.Spark.staticFiles;
 
 
 public class Main {
 
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws SQLException {
 
-        UserDaoImpl usuarioadmin = new UserDaoImpl(User.class);
-        ProfileDaoImpl profileadmin = new ProfileDaoImpl(Profile.class);
+        //Iniciando el servicio
+        BootStrapServices.startDb();
 
-        try{
-            ConnectionService.startDb();
+        //Prueba de Conexión.
+        DB.getInstancia().testConexion();
+
+        //indicando los recursos publicos, con esto se puede acceder a ellos sin hacerle metodos get ni post ni nada de eso
+        staticFiles.location("/public/assets");
+
+
+        EntityManagerFactory emf =  Persistence.createEntityManagerFactory("parcial2");
+        EntityManager entityManager = emf.createEntityManager();
+        entityManager.getTransaction().begin();
+        entityManager.close();
+
+
+        //usuario administrador por defecto
+//       UsuarioServices usuarioServices = new UsuarioServices();
+//        if(usuarioServices.listaUsuarios().size() < 1){
+//            Usuario administrador = new Usuario();
+//            administrador.setNombre("Nombre del Administrador");
+//            administrador.setUsername("admin");
+//            administrador.setAdministrador(true);
+//            administrador.setAutor(true);
+//            administrador.setPassword("admin");
+//            if( usuarioServices.crearUsuario(administrador)){
+//                System.out.println("Usuario administrador creado..");
+//            }
+//        }
+
+//        ArticuloServices as = new ArticuloServices();
+//        as.crearArticulo("El agua post", "cuerpesit00ao", 33, "comida, frio, sueño");
+//        EtiquetaServices es = new EtiquetaServices();
+//        es.crearEtiqueta("COCINA");
+//        es.crearEtiqueta("PROGRAMACION");
+//        es.crearEtiqueta("YOLO");
+//        es.crearEtiqueta("FOTOGRAFIA");
+
+
+        //Seteando el puerto en Heroku
+        port(getHerokuAssignedPort());
+
+        //Las rutas
+        new RutasImagen().rutas();
+        new ManejoRutasGenerales().rutas();
+        new ManejoRutasShant().rutas();
+
+
+        new Filtros().aplicarFiltros();
+
+        new ManejoExcepciones().manejoExcepciones();
+
+
+    }
+
+    static int getHerokuAssignedPort() {
+        ProcessBuilder processBuilder = new ProcessBuilder();
+        if (processBuilder.environment().get("PORT") != null) {
+            return Integer.parseInt(processBuilder.environment().get("PORT"));
         }
-        catch (SQLException e){
-
-            e.printStackTrace();
-        }
-
-        HibernateUtil.buildSessionFactory().openSession().close();
-        User temp = usuarioadmin.searchByUsername("admin");
-
-        if(temp == null){
-
-            User usuarioPorDefecto = new User(1, "admin", "admin", "admin@gwebmaster.me",true,null,null,null);
-            usuarioadmin.add(usuarioPorDefecto);
-            Profile perfil = new Profile();
-            perfil.setUser(usuarioPorDefecto);
-            profileadmin.add(perfil);
-
-
-        }
-
-        HibernateUtil.openSession().close();
-
-        final Configuration configuration = new Configuration(new Version(2, 3, 26));
-
-        configuration.setClassForTemplateLoading(Main.class, "/templates");
-
-        staticFileLocation("/public/assets");
-
-
-        FreeMarkerEngine freeMarkerEngine = new FreeMarkerEngine(configuration);
-        new WebRoutes(freeMarkerEngine);
-
+        return 4567; //return default port if heroku-port isn't set (i.e. on localhost)
     }
 }
