@@ -63,8 +63,7 @@ public class Main {
 
         //Las rutas
         new RutasImagen().rutas();
-        new ManejoRutasGenerales().rutas();
-        new ManejoRutasShant().rutas();
+        new RutasWeb().rutas();
 
 
         new Filtros().aplicarFiltros();

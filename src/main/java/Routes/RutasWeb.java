@@ -5,22 +5,30 @@ import Encapsulation.Publicacion;
 import Encapsulation.Usuario;
 import Services.*;
 import spark.ModelAndView;
+import spark.Request;
+import spark.Response;
 import spark.Session;
 import spark.template.thymeleaf.ThymeleafTemplateEngine;
 
 import javax.servlet.MultipartConfigElement;
 import java.io.File;
 import java.text.SimpleDateFormat;
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
 import java.util.*;
 
 import static spark.Spark.get;
 import static spark.Spark.post;
 
-public class ManejoRutasShant {
 
-    public void rutas() {
+public class RutasWeb {
+
+    // Declaración para simplificar el uso del motor de template Thymeleaf.
+    public static String renderThymeleaf(Map<String, Object> model, String templatePath) {
+        return new ThymeleafTemplateEngine().render(new ModelAndView(model, templatePath));
+    }
+
+
+    public void rutas(){
+
         File uploadDir = new File("fotos");
         uploadDir.mkdir();
 
@@ -29,8 +37,8 @@ public class ManejoRutasShant {
         if (new UsuarioServices().getUsuarioByEmail("admin@admin.com") == null) {
             Usuario usuario = new Usuario();
             usuario.setPassword("admin");
-            usuario.setNombre("Shantall");
-            usuario.setApellido("Giron");
+            usuario.setNombre("Stanley");
+            usuario.setApellido("De Moya");
             usuario.setCorreo("admin@admin.com");
             usuario.setLugar_nacimiento("Santiago");
             usuario.setCiudad_residencia("Santiago");
@@ -81,65 +89,6 @@ public class ManejoRutasShant {
             session.attribute("usuario", user);
             response.redirect("/inicio");
 
-           /* boolean iniciarsesion = Boolean.parseBoolean(request.queryParams("iniciarsesion"));
-
-            if (iniciarsesion) {
-                String correo = request.queryParams("username");
-                String contrasena = request.queryParams("password");
-
-                Usuario user = new UsuarioServices().autenticarUsuario(correo, contrasena);
-
-                if (user == null) {
-                    request.session().invalidate();
-                    response.redirect("/login");
-                } else {
-                    try {
-                        if("on".equalsIgnoreCase(request.queryParams("recordar"))){
-                            response.cookie("/", "usuario", Long.toString(user.getId()), 7*24*60*60*1000, false);
-                            response.cookie("/", "pass", user.getPassword(), 7*24*60*60*1000, false);
-                        }else{
-                            response.cookie("/", "usuario", Long.toString(user.getId()), 0, false);
-                            response.cookie("/", "pass", Long.toString(user.getId()), 0, false);
-                        }
-                    }catch (Exception e){  }
-
-                    Session session = request.session(true);
-                    session.attribute("usuario", user);
-                    response.redirect("/inicio");
-                }
-
-
-            } else {
-                Usuario usuario = new Usuario();
-
-                String nombre = request.queryParams("nombre");
-                String apellido = request.queryParams("apellido");
-                String correo = request.queryParams("correo");
-                String contrasena = request.queryParams("contrasena");
-                String cumpleanos = request.queryParams("cumpleanos");
-
-
-                usuario.setNombre(nombre);
-                usuario.setApellido(apellido);
-                usuario.setCorreo(correo);
-                usuario.setPassword(contrasena);
-                usuario.setFecha_nacimiento(new SimpleDateFormat("mm/dd/yyyy").parse(cumpleanos));
-
-                usuario.setFotoPerfil("/img/badge3.png");
-                usuario.setFotoPortada("/img/top-header1.jpg");
-                usuario.setAdmin(true);
-
-
-                new UsuarioServices().crearUsuario(usuario);
-
-                Usuario user =  UsuarioServices.getInstancia().getUsuarioByEmail(correo);
-
-                Session session = request.session(true);
-                session.attribute("usuario", user);
-                response.redirect("/inicio");
-
-                response.redirect("/login?register=true");
-            }*/
 
             return null;
         });
@@ -327,63 +276,112 @@ public class ManejoRutasShant {
             return renderThymeleaf(modelo,"/registrar");
         });
 
-      /*
-        post("/borrarPublicacion", (request, response) -> {
-            PublicacionServices as = new PublicacionServices();
-            Session session = request.session(true);
-            int publicacionid = Integer.parseInt(request.queryParams("publicacionid"));
-            int usuarioid = (int)( (Usuario)session.attribute("usuario")).getId();
-            as.borrarPublicacion(publicacionid, usuarioid);
-            response.redirect("/inicio");
+       get("/", (request, response) -> {
+           if(UsuarioServices.getLogUser(request) != null)
+               response.redirect("/inicio");
+           else
+               response.redirect("/login");
+
+           return "";
+        });
+
+        get("", (request, response) -> {
+            if(UsuarioServices.getLogUser(request) != null)
+                response.redirect("/inicio");
+            else
+                response.redirect("/login");
+
             return "";
         });
 
-        get("/editarPublicacion", (request, response)->{
-            int id = Integer.parseInt(request.queryParams("id"));
-            PublicacionServices as = new PublicacionServices();
-            Publicacion publicacion = as.getPublicacion((long) id);
+
+        post("/comentar", (request, response) -> {
+            ComentarioServices cs = new ComentarioServices();
+            Session session = request.session(true);
+            long publicacionid = Long.parseLong(request.queryParams("publicacionid"));
+            long usuarioid = ((Usuario)session.attribute("usuario")).getId();
+
+            cs.crearComentario(request.queryParams("comentario"), usuarioid, publicacionid);
+            response.redirect("/publicacion?id=" + publicacionid);
+
+            return "";
+        });
+
+
+        post("/publicacion/likear", (request, response) -> {
+           long publicacionid = Long.parseLong(request.queryParams("publicacionid"));
+            long usuarioid = UsuarioServices.getLogUser(request).getId();
+            LikePublicacionServices las = new LikePublicacionServices();
+
+            las.setLikes(publicacionid, usuarioid);
+
+            return "";
+        });
+
+        get("/publicacion", (request, response) -> {
             Map<String, Object> modelo = new HashMap<>();
-            modelo.put("registeredUser", getLogUser(request));
-            modelo.put("publicacion", publicacion);
-            String etiqueta = "";
+            Publicacion publicacion = PublicacionServices.getInstancia().find(Long.parseLong(request.queryParams("id")));
+            Usuario amigo = UsuarioServices.getInstancia().getUsuario( publicacion.getUsuario().getId() );
 
-            return renderThymeleaf(modelo, "/editarPublicacion");
-        });
+            modelo.put("usuario", UsuarioServices.getLogUser(request));
+            modelo.put("amigo", amigo);
 
-        post("/editarPublicacion", (request, response) -> {
-            PublicacionServices as = new PublicacionServices();
-            String descripcion = request.queryParams("descripcion");
-            String usuario = request.queryParams("usuario");
-            String tags = request.queryParams("etiquetas");
-            String img = request.queryParams("img");
-            long id = (long) Integer.parseInt( request.queryParams("id"));
-
-            as.actualizarPublicacion(descripcion, usuario, tags, id);
-
-            response.redirect("/inicio");
-            return "";
-        });
-
-        private Usuario getLogUser(Request request){
-
-            Usuario usuario = new Usuario();
-            Session session = request.session(true);
-
-            if(request.cookie("usuario") != null){
-                UsuarioServices us = new UsuarioServices();
-                usuario = us.getUsuario(Integer.parseInt(request.cookie("usuario")));
-                session.attribute("usuario", usuario);
+            if( publicacion.getAlbum_id() != null){
+                modelo.put("album", AlbumServices.getInstancia().find(publicacion.getAlbum_id()));
+            }else{
+                modelo.put("publicacion", publicacion);
             }
 
-            if(session.attribute("usuario") != null) usuario = session.attribute("usuario");
+            modelo.put("comentarios", ComentarioServices.getInstancia().getComentarioByPublicacionID(publicacion.getId()));
 
-            return usuario;
-        }*/
+            return renderThymeleaf(modelo,"/perfil");
+        });
+
+        get("/solicitar", (request, response) -> {
+            long amigoid = Long.parseLong(request.queryParams("amigo"));
+            AmigoServices.getInstancia().solicitarAmigo(UsuarioServices.getLogUser(request), UsuarioServices.getInstancia().getUsuario(amigoid));
+            response.redirect("/perfil?usuario=" + amigoid);
+           return "";
+        });
+
+        get("/aceptar", (request, response) -> {
+            long amigoid = Long.parseLong(request.queryParams("amigo"));
+            System.out.println(amigoid);
+            AmigoServices.getInstancia().aceptarAmigo(UsuarioServices.getLogUser(request), UsuarioServices.getInstancia().getUsuario(amigoid));
+         //  response.redirect("/perfil?usuario=" + amigoid);
+            return "";
+        });
+
+        get("/rechazar", (request, response) -> {
+            long amigoid = Long.parseLong(request.queryParams("amigo"));
+            AmigoServices.getInstancia().rechazarAmigo(UsuarioServices.getLogUser(request), UsuarioServices.getInstancia().getUsuario(amigoid));
+          // response.redirect("/perfil?usuario=" + amigoid);
+            return "";
+        });
+
+
+        /*
+        get("/amigos", (request, response) -> {
+            Map<String, Object> modelo = new HashMap<>();
+            modelo.put("hola", AmigoServices.getInstancia().getAmigosByUsuarioID(UsuarioServices.getLogUser(request).getId()));
+            return modelo;
+        });
+        */
     }
 
-    // Declaración para simplificar el uso del motor de template Thymeleaf.
-    public static String renderThymeleaf(Map<String, Object> model, String templatePath) {
-        return new ThymeleafTemplateEngine().render(new ModelAndView(model, templatePath));
+
+    private static Object procesarParametros(Request request, Response response){
+      //  System.out.println("Recibiendo mensaje por el metodo: "+request.requestMethod());
+        Set<String> parametros = request.queryParams();
+        String salida="";
+
+        for(String param : parametros){
+            salida += String.format("Parametro[%s] = %s <br/>", param, request.queryParams(param));
+        }
+
+        return salida;
     }
+
+
 
 }
