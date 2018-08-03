@@ -6,9 +6,6 @@
     <persistence-unit name="parcial2" transaction-type="RESOURCE_LOCAL">
         <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
         <class>Encapsulation.Usuario</class>
-        <class>Encapsulation.CentroEducativo</class>
-        <class>Encapsulation.Ciudad</class>
-        <class>Encapsulation.LugarTrabajo</class>
         <class>Encapsulation.Notificacion</class>
         <class>Encapsulation.Publicacion</class>
         <class>Encapsulation.Amigo</class>
