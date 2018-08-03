@@ -94,13 +94,12 @@ public class UsuarioServices extends GestionDb<Usuario> {
     public static Usuario getLogUser(Request request){
         Usuario usuario = null;
         Session session = request.session(true);
-        if(request.cookie("usuario") != null){
-            UsuarioServices us = new UsuarioServices();
-            usuario = us.getUsuario(Integer.parseInt(request.cookie("usuario")));
-            session.attribute("usuario", usuario);
-        }
-        if(session.attribute("usuario") != null) usuario = session.attribute("usuario");
+        if(session.attribute("usuario") != null){
+            //UsuarioServices us = new UsuarioServices();
+            //usuario = us.getUsuario(Long.parseLong(session.attribute("usuario")));
+            usuario = session.attribute("usuario");
 
+        }
         return usuario;
     }
 

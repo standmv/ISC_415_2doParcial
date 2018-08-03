@@ -11,6 +11,8 @@ import spark.template.thymeleaf.ThymeleafTemplateEngine;
 import javax.servlet.MultipartConfigElement;
 import java.io.File;
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.*;
 
 import static spark.Spark.get;
@@ -69,11 +71,21 @@ public class ManejoRutasShant {
         });
 
         post("/login", (request, response) -> {
-            boolean iniciarsesion = Boolean.parseBoolean(request.queryParams("iniciarsesion"));
+
+            String correo = request.queryParams("username");
+            String contrasena = request.queryParams("password");
+
+            Usuario user = new UsuarioServices().autenticarUsuario(correo, contrasena);
+
+            Session session = request.session(true);
+            session.attribute("usuario", user);
+            response.redirect("/inicio");
+
+           /* boolean iniciarsesion = Boolean.parseBoolean(request.queryParams("iniciarsesion"));
 
             if (iniciarsesion) {
-                String correo = request.queryParams("correo");
-                String contrasena = request.queryParams("contrasena");
+                String correo = request.queryParams("username");
+                String contrasena = request.queryParams("password");
 
                 Usuario user = new UsuarioServices().autenticarUsuario(correo, contrasena);
 
@@ -127,7 +139,7 @@ public class ManejoRutasShant {
                 response.redirect("/inicio");
 
                 response.redirect("/login?register=true");
-            }
+            }*/
 
             return null;
         });
@@ -135,7 +147,8 @@ public class ManejoRutasShant {
         get("/inicio", (request, response) -> {
             Map<String, Object> modelo = new HashMap<>();
             Usuario u = UsuarioServices.getLogUser(request);
-            System.out.println(u.getAmigos());
+            modelo.put("usuario", u);
+            /*System.out.println(u.getAmigos());
             List<Publicacion> publicaciones = new PublicacionServices().listaPublicacion(u.getId());
 
             for( Publicacion p:publicaciones ){
@@ -144,8 +157,8 @@ public class ManejoRutasShant {
 
             modelo.put("publicaciones", publicaciones );
             modelo.put("usuario", u);
-            modelo.put("usuarios", UsuarioServices.getInstancia().findAll());
-            return renderThymeleaf(modelo,"/inicio");
+            modelo.put("usuarios", UsuarioServices.getInstancia().findAll());*/
+            return renderThymeleaf(modelo,"/home");
         });
 
         post("/publicacion", (request, response) -> {
@@ -277,6 +290,41 @@ public class ManejoRutasShant {
             request.session().invalidate();
             response.redirect("/login");
             return null;
+        });
+
+        post("/registrarme", (request, response) -> {
+            Usuario usuario = new Usuario();
+
+            String nombre = request.queryParams("nombre");
+            String apellido = request.queryParams("apellido");
+            String correo = request.queryParams("email");
+            String contrasena = request.queryParams("password");
+            String cumpleanos = request.queryParams("fechanacimiento");
+
+
+            usuario.setNombre(nombre);
+            usuario.setApellido(apellido);
+            usuario.setCorreo(correo);
+            usuario.setPassword(contrasena);
+            usuario.setFecha_nacimiento(new SimpleDateFormat("yyyy-mm-dd").parse(cumpleanos));
+            usuario.setFotoPerfil("/img/badge3.png");
+            usuario.setFotoPortada("/img/top-header1.jpg");
+            //usuario.setAdmin(true);
+
+            new UsuarioServices().crearUsuario(usuario);
+
+            Usuario user =  UsuarioServices.getInstancia().getUsuarioByEmail(correo);
+
+            Session session = request.session(true);
+            session.attribute("usuario", user);
+            response.redirect("/inicio");
+            return null;
+        });
+
+        get("/registrarme", (request, response) -> {
+            Map<String, Object> modelo = new HashMap<>();
+
+            return renderThymeleaf(modelo,"/registrar");
         });
 
       /*

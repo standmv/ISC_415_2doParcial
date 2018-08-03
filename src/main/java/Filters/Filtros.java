@@ -10,7 +10,7 @@ import static spark.Spark.*;
 public class Filtros { //para aplicar filtros
     public void aplicarFiltros(){
 
-        before("/comentar",(request, response) -> {
+       /* before("/comentar",(request, response) -> {
             Usuario usuario = request.session(true).attribute("usuario");
             if(usuario == null){
                 //parada del request, enviando un codigo.
@@ -27,7 +27,7 @@ public class Filtros { //para aplicar filtros
                 halt(200, "No tiene permisos para acceder..");
             }
         });
-
+           */
         /*afterAfter("*",(request, response) -> {
            // System.out.println("estoy aqui... : " + response.raw().getStatus() );
             if (response.raw().getStatus() == 404) {
