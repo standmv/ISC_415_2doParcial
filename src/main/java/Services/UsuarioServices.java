@@ -1,14 +1,20 @@
-package Services;
+package services;
 
-
-import Encapsulation.Usuario;
+import modelos.Usuario;
 import org.jasypt.util.password.StrongPasswordEncryptor;
 import spark.Request;
 import spark.Session;
 
 import javax.persistence.EntityManager;
 import javax.persistence.Query;
+import java.sql.Connection;
+import java.sql.Date;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 
 
 public class UsuarioServices extends GestionDb<Usuario> {
@@ -94,12 +100,13 @@ public class UsuarioServices extends GestionDb<Usuario> {
     public static Usuario getLogUser(Request request){
         Usuario usuario = null;
         Session session = request.session(true);
-        if(session.attribute("usuario") != null){
-            //UsuarioServices us = new UsuarioServices();
-            //usuario = us.getUsuario(Long.parseLong(session.attribute("usuario")));
-            usuario = session.attribute("usuario");
-
+        if(request.cookie("usuario") != null){
+            UsuarioServices us = new UsuarioServices();
+            usuario = us.getUsuario(Integer.parseInt(request.cookie("usuario")));
+            session.attribute("usuario", usuario);
         }
+        if(session.attribute("usuario") != null) usuario = session.attribute("usuario");
+
         return usuario;
     }
 

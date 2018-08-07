@@ -1,7 +1,8 @@
-package Services;
+package services;
 
 
-import Encapsulation.LikePublicacion;
+import modelos.LikePublicacion;
+
 import javax.persistence.EntityManager;
 import javax.persistence.Query;
 import java.util.List;

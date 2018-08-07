@@ -1,24 +1,18 @@
-import Filters.Filtros;
-import Filters.ManejoExcepciones;
-import Routes.*;
-import Services.BootStrapServices;
-import Services.DB;
+import rutas.ManejoRutasGenerales;
+import rutas.ManejoRutasShant;
+import rutas.RutasImagen;
+import services.*;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
-
 import java.sql.SQLException;
 
 import static spark.Spark.port;
 import static spark.Spark.staticFiles;
 
-
 public class Main {
-
-
-    public static void main(String[] args) throws SQLException {
-
+    public static void main(String[] args)throws SQLException {
         //Iniciando el servicio
         BootStrapServices.startDb();
 
@@ -26,7 +20,7 @@ public class Main {
         DB.getInstancia().testConexion();
 
         //indicando los recursos publicos, con esto se puede acceder a ellos sin hacerle metodos get ni post ni nada de eso
-        staticFiles.location("/public/assets");
+        staticFiles.location("/templates");
 
 
         EntityManagerFactory emf =  Persistence.createEntityManagerFactory("parcial2");
@@ -63,12 +57,13 @@ public class Main {
 
         //Las rutas
         new RutasImagen().rutas();
-        new RutasWeb().rutas();
+        new ManejoRutasGenerales().rutas();
+        new ManejoRutasShant().rutas();
 
 
-        new Filtros().aplicarFiltros();
+       new Filtros().aplicarFiltros();
 
-        new ManejoExcepciones().manejoExcepciones();
+       new ManejoExcepciones().manejoExcepciones();
 
 
     }
@@ -80,4 +75,6 @@ public class Main {
         }
         return 4567; //return default port if heroku-port isn't set (i.e. on localhost)
     }
+
 }
+

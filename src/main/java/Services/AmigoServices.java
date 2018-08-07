@@ -1,9 +1,8 @@
-package Services;
+package services;
 
-import Encapsulation.Amigo;
-import Encapsulation.Notificacion;
-import Encapsulation.Usuario;
-
+import modelos.Amigo;
+import modelos.Notificacion;
+import modelos.Usuario;
 
 import javax.persistence.EntityManager;
 import javax.persistence.Query;

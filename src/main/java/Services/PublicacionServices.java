@@ -1,14 +1,14 @@
-package Services;
+package services;
 
-
-
-import Encapsulation.Publicacion;
+import modelos.Publicacion;
 
 import javax.persistence.EntityManager;
 import javax.persistence.Query;
-import java.util.List;
+import java.sql.*;
+import java.util.*;
 
 import static java.lang.Math.max;
+
 
 
 public class PublicacionServices extends GestionDb<Publicacion>{

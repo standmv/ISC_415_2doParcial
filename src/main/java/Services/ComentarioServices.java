@@ -1,6 +1,6 @@
-package Services;
+package services;
 
-import Encapsulation.Comentario;
+import modelos.Comentario;
 
 import javax.persistence.EntityManager;
 import javax.persistence.Query;

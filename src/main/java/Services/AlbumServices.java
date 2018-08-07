@@ -1,7 +1,6 @@
-package Services;
+package services;
 
-
-import Encapsulation.Album;
+import modelos.Album;
 
 public class AlbumServices extends GestionDb<Album> {
 

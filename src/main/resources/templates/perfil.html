@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+
+	<title>Perfil</title>
+
+	<!-- Required meta tags always come first -->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="x-ua-compatible" content="ie=edge">
+
+	<!-- Bootstrap CSS -->
+
+	<link rel="stylesheet" type="text/css" href="Bootstrap/dist/css/bootstrap.css">
+    <link  rel="stylesheet" type="text/css" href="Bootstrap/dist/css/facebook.css">
+	<link rel="stylesheet" type="text/css" href="css/main.min.css">
+
+
+
+</head>
+<body>
+
+
+<!-- ... end Top Header-Profile -->
+<div class="container">
+	<div class="row">
+
+		<div class="col col-xl-6 order-xl-2 col-lg-12 order-lg-1 col-md-12 col-sm-12 col-12">
+			<div  th:if="${publicaciones}">
+				<div th:replace="capas/publicar">
+				</div>
+				<div th:replace="capas/publicaciones">
+				</div>
+			</div>
+			<div th:if="${publicacion}">
+				<div th:replace="capas/publicacion">
+				</div>
+			</div>
+			<div th:if="${album}">
+				<div class="ui-block-title text-center">
+					<h4 class="title">Imágenes del &Aacute;lbum</h4>
+				</div>
+				<div th:each="publicacion : ${album.fotos}">
+					<div th:replace="capas/publicacion">
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- ... end Main Content -->
+
+
+		<!-- ... end Right Sidebar -->
+
+	</div>
+</div>
+
+<!-- Window-popup Update Header Photo -->
+
+<div class="modal fade" id="update-profile-photo" tabindex="-1" role="dialog" aria-labelledby="update-header-photo" aria-hidden="true">
+	<div class="modal-dialog window-popup update-header-photo" role="document">
+		<div class="modal-content">
+
+
+			<div class="modal-header">
+				<h6 class="title">Seleccione nueva imagen</h6>
+			</div>
+
+			<div class="modal-body align-center">
+				<a href="#" class="upload-photo-item">
+					<svg class="olymp-computer-icon"><use xlink:href="svg-icons/sprites/icons.svg#olymp-computer-icon"></use></svg>
+					<h6>Upload Photo</h6>
+					<form method='post' enctype='multipart/form-data' action="/foto/perfil/">
+						<input type='file' name='foto'>
+						<button>Actualizar</button>
+					</form>
+				</a>
+
+			</div>
+		</div>
+	</div>
+</div>
+
+
+
+<!-- JS Scripts -->
+<script src="js/jquery-3.2.1.js"></script>
+<script src="js/jquery.appear.js"></script>
+<script src="js/jquery.mousewheel.js"></script>
+<script src="js/perfect-scrollbar.js"></script>
+<script src="js/jquery.matchHeight.js"></script>
+<script src="js/svgxuse.js"></script>
+<script src="js/imagesloaded.pkgd.js"></script>
+<script src="js/Headroom.js"></script>
+<script src="js/velocity.js"></script>
+<script src="js/ScrollMagic.js"></script>
+<script src="js/jquery.waypoints.js"></script>
+<script src="js/jquery.countTo.js"></script>
+<script src="js/popper.min.js"></script>
+<script src="js/material.min.js"></script>
+<script src="js/bootstrap-select.js"></script>
+<script src="js/smooth-scroll.js"></script>
+<script src="js/selectize.js"></script>
+<script src="js/swiper.jquery.js"></script>
+<script src="js/moment.js"></script>
+<script src="js/daterangepicker.js"></script>
+<script src="js/simplecalendar.js"></script>
+<script src="js/fullcalendar.js"></script>
+<script src="js/isotope.pkgd.js"></script>
+<script src="js/ajax-pagination.js"></script>
+<script src="js/Chart.js"></script>
+<script src="js/chartjs-plugin-deferred.js"></script>
+<script src="js/circle-progress.js"></script>
+<script src="js/loader.js"></script>
+<script src="js/run-chart.js"></script>
+<script src="js/jquery.magnific-popup.js"></script>
+<script src="js/jquery.gifplayer.js"></script>
+<script src="js/mediaelement-and-player.js"></script>
+<script src="js/mediaelement-playlist-plugin.min.js"></script>
+<script src="js/sticky-sidebar.js"></script>
+
+<script src="js/base-init.js"></script>
+<script defer src="fonts/fontawesome-all.js"></script>
+
+<script src="Bootstrap/dist/js/bootstrap.bundle.js"></script>
+
+
+</body>
+</html>

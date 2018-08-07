@@ -5,13 +5,16 @@
              version="2.1">
     <persistence-unit name="parcial2" transaction-type="RESOURCE_LOCAL">
         <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
-        <class>Encapsulation.Usuario</class>
-        <class>Encapsulation.Notificacion</class>
-        <class>Encapsulation.Publicacion</class>
-        <class>Encapsulation.Amigo</class>
-        <class>Encapsulation.Album</class>
-        <class>Encapsulation.Comentario</class>
-        <class>Encapsulation.LikePublicacion</class>
+        <class>modelos.Usuario</class>
+        <class>modelos.CentroEducativo</class>
+        <class>modelos.Ciudad</class>
+        <class>modelos.LugarTrabajo</class>
+        <class>modelos.Notificacion</class>
+        <class>modelos.Publicacion</class>
+        <class>modelos.Amigo</class>
+        <class>modelos.Album</class>
+        <class>modelos.Comentario</class>
+        <class>modelos.LikePublicacion</class>
 
         <properties>
             <!--<property name="javax.persistence.jdbc.url" value="jdbc:h2:mem:test" />-->
