@@ -1,7 +1,7 @@
 import rutas.ManejoRutasGenerales;
 import rutas.ManejoRutasShant;
 import rutas.RutasImagen;
-import services.*;
+import Services.*;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;

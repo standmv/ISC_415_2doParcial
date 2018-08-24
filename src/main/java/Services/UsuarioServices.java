@@ -1,4 +1,4 @@
-package services;
+package Services;
 
 import modelos.Usuario;
 import org.jasypt.util.password.StrongPasswordEncryptor;
@@ -98,7 +98,7 @@ public class UsuarioServices extends GestionDb<Usuario> {
     }
 
     public static Usuario getLogUser(Request request){
-        Usuario usuario = null;
+       /* Usuario usuario = null;
         Session session = request.session(true);
         if(request.cookie("usuario") != null){
             UsuarioServices us = new UsuarioServices();
@@ -108,7 +108,20 @@ public class UsuarioServices extends GestionDb<Usuario> {
         if(session.attribute("usuario") != null) usuario = session.attribute("usuario");
 
         return usuario;
+        */
+
+        Usuario usuario = null;
+        Session session = request.session(true);
+        if(session.attribute("usuario") != null){
+            //UsuarioServices us = new UsuarioServices();
+            //usuario = us.getUsuario(Long.parseLong(session.attribute("usuario")));
+            usuario = session.attribute("usuario");
+
+        }
+        return usuario;
+
     }
+
 
 }
 
