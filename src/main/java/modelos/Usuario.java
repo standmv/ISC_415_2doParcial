@@ -1,7 +1,7 @@
 package modelos;
 
 import org.hibernate.annotations.CreationTimestamp;
-import Services.PublicacionServices;
+import services.PublicacionServices;
 
 import javax.persistence.*;
 import java.util.Date;

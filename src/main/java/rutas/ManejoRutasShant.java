@@ -5,7 +5,7 @@ import modelos.Publicacion;
 
 
 import modelos.Usuario;
-import Services.*;
+import services.*;
 import spark.ModelAndView;
 import spark.Session;
 import spark.template.thymeleaf.ThymeleafTemplateEngine;
@@ -69,14 +69,65 @@ public class ManejoRutasShant {
         });
 
         post("/login", (request, response) -> {
-            String correo = request.queryParams("username");
-            String contrasena = request.queryParams("password");
+            boolean iniciarsesion = Boolean.parseBoolean(request.queryParams("iniciarsesion"));
 
-            Usuario user = new UsuarioServices().autenticarUsuario(correo, contrasena);
+            if (iniciarsesion) {
+                String correo = request.queryParams("correo");
+                String contrasena = request.queryParams("contrasena");
 
-            Session session = request.session(true);
-            session.attribute("usuario", user);
-            response.redirect("/inicio");
+                Usuario user = new UsuarioServices().autenticarUsuario(correo, contrasena);
+
+                if (user == null) {
+                    request.session().invalidate();
+                    response.redirect("/login");
+                } else {
+                    try {
+                        if("on".equalsIgnoreCase(request.queryParams("recordar"))){
+                            response.cookie("/", "usuario", Long.toString(user.getId()), 7*24*60*60*1000, false);
+                            response.cookie("/", "pass", user.getPassword(), 7*24*60*60*1000, false);
+                        }else{
+                            response.cookie("/", "usuario", Long.toString(user.getId()), 0, false);
+                            response.cookie("/", "pass", Long.toString(user.getId()), 0, false);
+                        }
+                    }catch (Exception e){  }
+
+                    Session session = request.session(true);
+                    session.attribute("usuario", user);
+                    response.redirect("/inicio");
+                }
+
+
+            } else {
+                Usuario usuario = new Usuario();
+
+                String nombre = request.queryParams("nombre");
+                String apellido = request.queryParams("apellido");
+                String correo = request.queryParams("correo");
+                String contrasena = request.queryParams("contrasena");
+                String cumpleanos = request.queryParams("cumpleanos");
+
+
+                usuario.setNombre(nombre);
+                usuario.setApellido(apellido);
+                usuario.setCorreo(correo);
+                usuario.setPassword(contrasena);
+                usuario.setFecha_nacimiento(new SimpleDateFormat("mm/dd/yyyy").parse(cumpleanos));
+
+                usuario.setFotoPerfil("/img/badge3.png");
+                usuario.setFotoPortada("/img/top-header1.jpg");
+                usuario.setAdmin(true);
+
+
+                new UsuarioServices().crearUsuario(usuario);
+
+                Usuario user =  UsuarioServices.getInstancia().getUsuarioByEmail(correo);
+
+                Session session = request.session(true);
+                session.attribute("usuario", user);
+                response.redirect("/inicio");
+
+                response.redirect("/login?register=true");
+            }
 
             return null;
         });

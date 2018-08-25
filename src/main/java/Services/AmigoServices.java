@@ -1,4 +1,4 @@
-package Services;
+package services;
 
 import modelos.Amigo;
 import modelos.Notificacion;
