@@ -228,6 +228,33 @@ public class ManejoRutasShant {
             return null;
         });
 
+        post("/registrarme", (request, response) -> {
+            Usuario usuario = new Usuario();
+
+            String nombre = request.queryParams("nombre");
+            String apellido = request.queryParams("apellido");
+            String correo = request.queryParams("correo");
+            String contrasena = request.queryParams("contrasena");
+
+
+            usuario.setNombre(nombre);
+            usuario.setApellido(apellido);
+            usuario.setCorreo(correo);
+            usuario.setPassword(contrasena);
+            //usuario.setFotoPerfil("/img/badge3.png");
+            //usuario.setFotoPortada("/img/top-header1.jpg");
+            //usuario.setAdmin(true);
+
+            new UsuarioServices().crearUsuario(usuario);
+
+            Usuario user =  UsuarioServices.getInstancia().getUsuarioByEmail(correo);
+
+            Session session = request.session(true);
+            session.attribute("usuario", user);
+            response.redirect("/inicio");
+            return null;
+        });
+
       /*
         post("/borrarPublicacion", (request, response) -> {
             PublicacionServices as = new PublicacionServices();
