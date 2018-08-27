@@ -1,36 +1,78 @@
-package modelos;
-
-import org.hibernate.annotations.CreationTimestamp;
+package Modelos;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.Date;
 
 @Entity
-public class Notificacion {
+public class Notificacion implements Serializable {
     @Id
     @GeneratedValue
-    private Long id;
+    private long id;
+    private String texto;
 
-    @Column(columnDefinition = "text")
-    private String descripcion;
+    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.REMOVE)
+    private Usuario hasta;
 
-    @Column(columnDefinition = "text")
-    private String vinculo;
+    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.REMOVE)
+    private Usuario desde;
 
-    @CreationTimestamp
-    @Temporal(TemporalType.TIMESTAMP)
     private Date fecha;
 
+    private String tipoNotificacion;
 
-    @Column(columnDefinition =  "boolean default false")
-    private boolean leido;
+    private Boolean leido;
 
-    public boolean isLeido() {
+    public Notificacion() {
+    }
+
+    public Notificacion(String texto, Usuario desde, Usuario hasta, Date fecha, String tipoNotificacion, Boolean leido) {
+        this.texto = texto;
+        this.desde = desde;
+        this.hasta = hasta;
+        this.fecha = fecha;
+        this.tipoNotificacion = tipoNotificacion;
+        this.leido = leido;
+    }
+
+    public Boolean getLeido() {
         return leido;
     }
 
-    public void setLeido(boolean leido) {
+    public void setLeido(Boolean leido) {
         this.leido = leido;
+    }
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    public String getTexto() {
+        return texto;
+    }
+
+    public void setTexto(String texto) {
+        this.texto = texto;
+    }
+
+    public Usuario getDesde() {
+        return desde;
+    }
+
+    public void setDesde(Usuario desde) {
+        this.desde = desde;
+    }
+
+    public Usuario getHasta() {
+        return hasta;
+    }
+
+    public void setHasta(Usuario usuario) {
+        this.hasta = usuario;
     }
 
     public Date getFecha() {
@@ -41,27 +83,12 @@ public class Notificacion {
         this.fecha = fecha;
     }
 
-    public Long getId() {
-        return id;
+    public String getTipoNotificacion() {
+        return tipoNotificacion;
     }
 
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getDescripcion() {
-        return descripcion;
-    }
-
-    public void setDescripcion(String descripcion) {
-        this.descripcion = descripcion;
-    }
-
-    public String getVinculo() {
-        return vinculo;
-    }
-
-    public void setVinculo(String vinculo) {
-        this.vinculo = vinculo;
+    public void setTipoNotificacion(String tipoNotificacion) {
+        this.tipoNotificacion = tipoNotificacion;
     }
 }
+

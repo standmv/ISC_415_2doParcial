@@ -3,32 +3,24 @@
              xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence
              http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd"
              version="2.1">
-    <persistence-unit name="parcial2" transaction-type="RESOURCE_LOCAL">
+    <persistence-unit name="MiUnidadPersistencia" transaction-type="RESOURCE_LOCAL">
         <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
-        <class>modelos.Usuario</class>
-        <class>modelos.CentroEducativo</class>
-        <class>modelos.Ciudad</class>
-        <class>modelos.LugarTrabajo</class>
-        <class>modelos.Notificacion</class>
-        <class>modelos.Publicacion</class>
-        <class>modelos.Amigo</class>
-        <class>modelos.Album</class>
-        <class>modelos.Comentario</class>
-        <class>modelos.LikePublicacion</class>
-
+        <class>Modelos.Album</class>
+        <class>Modelos.Comentario</class>
+        <class>Modelos.Imagen</class>
+        <class>Modelos.Persona</class>
+        <class>Modelos.Post</class>
+        <class>Modelos.Reaccion</class>
+        <class>Modelos.Usuario</class>
+        <class>Modelos.Notificacion</class>
         <properties>
-            <!--<property name="javax.persistence.jdbc.url" value="jdbc:h2:mem:test" />-->
-            <property name="javax.persistence.jdbc.url" value="jdbc:h2:tcp://localhost/~/parcial2" />
+            <property name="javax.persistence.jdbc.url" value="jdbc:h2:tcp://localhost/~/bacano" />
             <property name="javax.persistence.jdbc.driver" value="org.h2.Driver" />
             <property name="javax.persistence.jdbc.user" value="sa" />
             <property name="javax.persistence.jdbc.password" value="" />
             <property name="hibernate.dialect" value="org.hibernate.dialect.H2Dialect"/>
-            <property name="hibernate.hbm2ddl.auto" value="create" />
             <property name="hibernate.show_sql" value="true"/>
-            <!-- Indica como será la generación de las tablas en el motor-->
             <property name="javax.persistence.schema-generation.database.action" value="update"/>
-            <!--<property name="eclipselink.logging.level" value="ALL" />-->
-
         </properties>
     </persistence-unit>
 </persistence>
