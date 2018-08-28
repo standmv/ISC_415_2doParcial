@@ -1,7 +1,7 @@
 <div class="modal fade" id="modal-album" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
      aria-hidden="true">
     <div class="modal-dialog modal-lg" role="document">
-        <div class="modal-content bg-dark text-white">
+        <div class="modal-content bg-info text-white">
             <div class="modal-header">
                 <h5 class="modal-title" id="exampleModalLabel">Crea tu album</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
