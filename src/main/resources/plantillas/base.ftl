@@ -45,11 +45,14 @@
 
                         <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <#if logueado>
-                            <li><a data-toggle="modal" class="text-white"
+
+                            <a class="text-white" href="/amigos">Amigos</a>
+                            &nbsp;&nbsp;
+                            <a data-toggle="modal" class="text-white"
                                     data-target="#notificaciones" >
                                 Notificaciones
                                 <span class="badge badge-secondary">${usuario.notificaciones?size}</span>
-                            </a></li>
+                            </a>
                             &nbsp;&nbsp;
                             <a data-toggle="modal" class="text-white "
                                     data-target="#exampleModal" >
