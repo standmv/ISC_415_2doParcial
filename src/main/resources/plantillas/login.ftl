@@ -46,15 +46,15 @@
                                    <h2 class="text-center">Login</h2>
 
                                    <div class="form-group">
-                                       <label for="email" class="col-sm-3 control-label">Correo</label>
+                                       <label for="email" class="col-sm-3 control-label">Usuario</label>
                                        <div class="col-sm-9">
-                                           <input type="text" id="email" placeholder="" class="form-control" name="username">
+                                           <input type="text" id="email" placeholder="" class="form-control" name="usuario">
                                        </div>
                                    </div>
                                    <div class="form-group">
                                        <label for="password" class="col-sm-3 control-label">Contraseña</label>
                                        <div class="col-sm-9">
-                                           <input type="password" id="password" placeholder="" class="form-control" name="password">
+                                           <input type="password" id="password" placeholder="" class="form-control" name="contrasena">
                                        </div>
                                    </div>
 
@@ -64,7 +64,7 @@
                                        </div>
                                    </div>
                                </form>
-                               <form id="register-form" method="post" action="/registrarme" class="content" name="registrationForm" style="display: none;">
+                               <form id="register-form" method="post" action="/registrar" class="content" name="registrationForm" style="display: none;">
                                    <input type="hidden" name="iniciarsesion" value="false">
                                    <div class="row">
                                        <div class="col col-12 col-xl-6 col-lg-6 col-md-6 col-sm-12">
@@ -79,6 +79,27 @@
                                                <input class="form-control" placeholder="" name="apellido" type="text" required>
                                            </div>
                                        </div>
+
+                                       <div class="col col-12 col-xl-6 col-lg-6 col-md-6 col-sm-12">
+                                           <label for="sexo">Sexo</label>
+                                           <br>
+                                           <div class="form-check form-check-inline">
+                                               <input class="form-check-input" type="radio" name="sexo" value="M" required>
+                                               <label class="form-check-label" for="sexo">Masculino</label>
+                                           </div>
+                                           <div class="form-check form-check-inline">
+                                               <input class="form-check-input" type="radio" name="sexo" value="F" required>
+                                               <label class="form-check-label" for="sexo">Femenino</label>
+                                           </div>
+                                       </div>
+
+                                       <div class="col col-12 col-xl-6 col-lg-6 col-md-6 col-sm-12">
+                                           <div class="form-group label-floating is-empty">
+                                               <label class="control-label">Nacionalidad</label>
+                                               <input class="form-control" placeholder="" name="nacionalidad" type="text" required>
+                                           </div>
+                                       </div>
+
                                        <div class="col col-12 col-xl-12 col-lg-12 col-md-12 col-sm-12">
                                            <div class="form-group label-floating is-empty">
                                                <label class="control-label">Email</label>
