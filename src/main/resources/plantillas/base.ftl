@@ -45,7 +45,8 @@
 
                         <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <#if logueado>
-
+                            <a class="text-white" href="/perfil/${usuario.usuario}"> ${usuario.usuario}</a>
+                            &nbsp;&nbsp;
                             <a class="text-white" href="/amigos">Amigos</a>
                             &nbsp;&nbsp;
                             <a data-toggle="modal" class="text-white"
