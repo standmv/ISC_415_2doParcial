@@ -62,7 +62,7 @@
             <br>
         </#if>
         <#if album.imagen2??>
-            <img src="/${album.imagen2.url}" class="imagen mb-2" width="860" title="${album.imagen2.descripcion}"
+            <img src="/${album.imagen2.url}" class="imagen mb-2 rounded mx-auto d-block" width="860" title="${album.imagen2.descripcion}"
                  alt="${album.imagen2.descripcion}">
             <#if album.imagen2.descripcion?length gt 0>
 
@@ -97,7 +97,7 @@
             <br>
         </#if>
         <#if album.imagen3??>
-            <img src="/${album.imagen3.url}" class="imagen mb-2" width="860" title="${album.imagen3.descripcion}"
+            <img src="/${album.imagen3.url}" class="imagen mb-2 rounded mx-auto d-block" width="860" title="${album.imagen3.descripcion}"
                  alt="${album.imagen3.descripcion}">
             <#if album.imagen3.descripcion?length gt 0>
 
