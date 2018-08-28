@@ -24,24 +24,20 @@
     </div>
     <div class="card-body">
         <p class="card-text">
-            <span class="alert alert-warning rounded-0 m-0">
-                <strong><em>Album:</em></strong> ${album.descripcion}
-            </span>
+
             <br>
         <#if album.imagen1??>
             <img src="/${album.imagen1.url}" class="imagen mb-2 rounded mx-auto d-block" width="600" title="${album.imagen1.descripcion}"
                      alt="${album.imagen1.descripcion}">
             <#if album.imagen1.descripcion?length gt 0>
-                <span class="alert alert-secondary rounded-0 m-0">
-                    <strong><em>Descripción:</em></strong> ${album.imagen1.descripcion}
-                </span>
+
             </#if>
             <button type="button" class="btn btn-sm btn-outline-light float-right btn-mostrar-comentarios-imagen"
                     data-id="${album.imagen1.id?string['0']}">
                 Comentarios <span class="badge badge-secondary"
                                   id="badge-cantidad-comentarios-imagen-${album.imagen1.id?string['0']}">${album.imagen1.comentarios?size}</span>
             </button>
-            <div class="alert alert-dark rounded-0 m-0 comentario-box" id="comentario-box-imagen-${album.imagen1.id?string['0']}">
+            <div class="alert alert-info rounded-0 m-0 comentario-box" id="comentario-box-imagen-${album.imagen1.id?string['0']}">
                 <textarea placeholder="Comenta tu opinión" class="comentario form-control rounded-0"
                   id="texto-imagen-${album.imagen1.id?string['0']}"></textarea>
                 <button type="submit" class="btn btn-outline-dark rounded-0 btn-comentar-imagen mt-3" data-id="${album.imagen1.id?string['0']}"
@@ -70,16 +66,14 @@
             <img src="/${album.imagen2.url}" class="imagen mb-2" width="860" title="${album.imagen2.descripcion}"
                  alt="${album.imagen2.descripcion}">
             <#if album.imagen2.descripcion?length gt 0>
-                <span class="alert alert-secondary rounded-0 m-0">
-                    <strong><em>Descripción:</em></strong> ${album.imagen2.descripcion}
-                </span>
+
             </#if>
             <button type="button" class="btn btn-sm btn-outline-light float-right btn-mostrar-comentarios-imagen"
                     data-id="${album.imagen2.id?string['0']}">
                 Comentarios <span class="badge badge-secondary"
                                   id="badge-cantidad-comentarios-imagen-${album.imagen2.id?string['0']}">${album.imagen2.comentarios?size}</span>
             </button>
-            <div class="alert alert-dark rounded-0 m-0 comentario-box" id="comentario-box-imagen-${album.imagen2.id?string['0']}">
+            <div class="alert alert-info rounded-0 m-0 comentario-box" id="comentario-box-imagen-${album.imagen2.id?string['0']}">
                 <textarea placeholder="Comenta tu opinión" class="comentario form-control rounded-0"
                           id="texto-imagen-${album.imagen2.id?string['0']}"></textarea>
                 <button type="submit" class="btn btn-outline-dark rounded-0 btn-comentar-imagen mt-3" data-id="${album.imagen2.id?string['0']}"
@@ -107,16 +101,14 @@
             <img src="/${album.imagen3.url}" class="imagen mb-2" width="860" title="${album.imagen3.descripcion}"
                  alt="${album.imagen3.descripcion}">
             <#if album.imagen3.descripcion?length gt 0>
-                <span class="alert alert-secondary rounded-0 m-0">
-                    <strong><em>Descripción:</em></strong> ${album.imagen3.descripcion}
-                </span>
+
             </#if>
             <button type="button" class="btn btn-sm btn-outline-light float-right btn-mostrar-comentarios-imagen"
                     data-id="${album.imagen3.id?string['0']}">
                 Comentarios <span class="badge badge-secondary"
                                   id="badge-cantidad-comentarios-imagen-${album.imagen3.id?string['0']}">${album.imagen3.comentarios?size}</span>
             </button>
-            <div class="alert alert-dark rounded-0 m-0 comentario-box" id="comentario-box-imagen-${album.imagen3.id?string['0']}">
+            <div class="alert alert-info rounded-0 m-0 comentario-box" id="comentario-box-imagen-${album.imagen3.id?string['0']}">
                 <textarea placeholder="Comenta tu opinión" class="comentario form-control rounded-0"
                           id="texto-imagen-${album.imagen3.id?string['0']}"></textarea>
                 <button type="submit" class="btn btn-outline-dark rounded-0 btn-comentar-imagen mt-3" data-id="${album.imagen3.id?string['0']}"
