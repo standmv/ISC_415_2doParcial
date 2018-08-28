@@ -38,7 +38,7 @@
                     </#list>
                 <#else>
                     <div class="alert alert-dark rounded-0 m-0">
-                        No tienes ninguna notificación.
+                        Sin notificación.
                     </div>
                 </#if>
             </div>
