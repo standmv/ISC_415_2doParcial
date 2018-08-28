@@ -89,7 +89,7 @@
                         <button type="button" class="btn btn-light" data-dismiss="modal">
                             <i class="fas fa-ban"></i> Cancelar
                         </button>
-                        <button class="btn btn-warning my-2 my-sm-0" type="submit">
+                        <button class="btn btn-light my-2 my-sm-0" type="submit">
                             <i class="fas fa-feather-alt"></i> Crear album
                         </button>
                     </div>

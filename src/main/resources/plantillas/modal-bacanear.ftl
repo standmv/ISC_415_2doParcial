@@ -26,7 +26,15 @@
                             <label class="custom-file-label" for="validatedCustomFile">Cargar Imagen</label>
                         </div>
                     </div>
-
+                    <div class="form-group">
+                        <label for="etiquetar">Etiquetar</label><br>
+                        <select class="select2 form-control rounded-0" name="etiquetado">
+                            <option selected value="">Busca un amigo</option>
+                            <#list amigos as amigo>
+                                <option value="${amigo.usuario.usuario}">${amigo.nombre} ${amigo.apellido}</option>
+                            </#list>
+                        </select>
+                    </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-light" data-dismiss="modal">
                              Cancelar

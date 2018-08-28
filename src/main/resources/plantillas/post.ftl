@@ -14,7 +14,7 @@
         <p class="card-text">
         <#if post.imagen??>
             <#if post.imagen.creado == "servidor">
-                <img src="/${post.imagen.url}" class="imagen mb-2" width="635" title="${post.imagen.descripcion}" alt="${post.imagen.descripcion}">
+                <img src="/${post.imagen.url}" class="imagen mb-2 rounded mx-auto d-block" width="600" title="${post.imagen.descripcion}" alt="${post.imagen.descripcion}">
             </#if>
             <#if post.imagen.creado == "cliente">
 
