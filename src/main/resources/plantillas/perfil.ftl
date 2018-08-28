@@ -4,25 +4,25 @@
         <div class="row">
             <div class="col-12 p-0">
                 <div class="jumbotron jumbotron-fluid"
-                     style="background: url('/img/cover_admin.png') no-repeat; background-size: cover;">
+                    >
                     <div class="container">
-                        <h1 class="display-4 text-white text-center">${persona.nombre} ${persona.apellido} </h1>
-                        <img src="https://i.imgur.com/hpta335.jpg" class="rounded-circle" alt="">
+
+                        <img src="/img/306232.png" width="200" class="rounded-circle" alt="">
                     </div>
                 </div>
-                <div class="card bg-dark text-white rounded-0 col-12 p-0 mb-5">
+                <div class="card bg-info text-white rounded-0 col-12 p-0 mb-5">
                     <h5 class="card-header text-center">
                         Información personal
                     </h5>
                     <div class="card-body">
                         <p class="card-text text-center">
-                            <i class="fas fa-user"></i> ${persona.nombre} ${persona.apellido} &nbsp;|&nbsp;
-                            <i class="fas fa-user-circle"></i> ${persona.usuario.usuario} &nbsp;|&nbsp;
-                            <i class="fas fa-map-marker-alt"></i> ${persona.nacionalidad} &nbsp;|&nbsp;
-                            <i class="fas fa-link"></i>
-                            <a href="https://${persona.sitioWeb}" target="_blank">${persona.sitioWeb}</a>
-                            &nbsp;|&nbsp;
-                            <i class="fas fa-calendar"></i> Se unió el ${persona.fechaRegistro?date}
+
+
+                            ${persona.nacionalidad} &nbsp; &nbsp;
+
+
+                            &nbsp; &nbsp;
+                             Se unió el ${persona.fechaRegistro?date}
                         </p>
                     </div>
                 </div>
