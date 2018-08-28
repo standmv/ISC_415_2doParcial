@@ -42,27 +42,29 @@
                             <span class="navbar-toggler-icon"></span>
                         </button>
                         <a href="#" class="navbar-brand logo">POMPONEO SOCIAL</a>
+
                         <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <#if logueado>
-
-                            <a class="btn btn-light my-2 my-xs-0 mr-2" data-toggle="modal"
+                            <li><a data-toggle="modal" class="text-white"
                                     data-target="#notificaciones" >
                                 Notificaciones
                                 <span class="badge badge-secondary">${usuario.notificaciones?size}</span>
-                            </a>
-                            <button class="btn btn-light my-2 my-xs-0" data-toggle="modal"
-                                    data-target="#exampleModal" type="button">
+                            </a></li>
+                            &nbsp;&nbsp;
+                            <a data-toggle="modal" class="text-white "
+                                    data-target="#exampleModal" >
                                  Publicar
-                            </button>
+                            </a>
                             &nbsp;&nbsp;
-                            <button class="btn btn-light my-2 my-xs-0" data-toggle="modal"
-                                    data-target="#modal-album" type="button">
+                            <a data-toggle="modal" class="text-white "
+                                    data-target="#modal-album" >
                                 Subir Album
-                            </button>
+                            </a>
                             &nbsp;&nbsp;
-                            <a href="/salir" class="btn btn-light  my-2 my-xs-0" type="submit">
+                            <a href="/salir" class="text-white " >
                                  Cerrar Sesion
                             </a>
+
                         <#else>
                             <ul class="navbar-nav mr-auto">
                             </ul>
