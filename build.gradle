@@ -1,7 +1,7 @@
 plugins {
     id 'java'
 }
-
+apply plugin: 'application'
 group 'ce.pucmm.edu.do'
 version '1.0-SNAPSHOT'
 
@@ -11,6 +11,7 @@ repositories {
     mavenCentral()
 }
 
+mainClassName="Main"
 
 dependencies {
     compile 'com.sparkjava:spark-core:2.7.2'
@@ -26,4 +27,3 @@ dependencies {
     testCompile group: 'junit', name: 'junit', version: '4.12'
 }
 
-apply plugin: 'application'
