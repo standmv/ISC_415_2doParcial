@@ -1,12 +1,12 @@
-<div class="card bg-dark text-white rounded-0 col-8 mx-auto p-0 mb-2">
+<div class="card bg-info text-white rounded-0 col-xs-12 col-lg-8 mx-auto p-0 mb-2">
     <div class="card-header">
         <small class="card-title">
-            <i class="fas fa-user"></i> ${album.usuario.usuario}
+           ${album.usuario.usuario}
             &nbsp;|&nbsp;
-            <i class="fas fa-calendar-alt"></i> ${album.fecha?string.iso}
+            ${album.fecha?string.iso}
             <#if album.imagen1?? && album.imagen1.personaEtiquetada??>
                 &nbsp;|&nbsp;
-                <i class="fas fa-tag"></i>
+
                 <strong>Foto #1: </strong>
                 ${album.imagen1.personaEtiquetada.nombre} ${album.imagen1.personaEtiquetada.apellido}
             </#if>
@@ -29,7 +29,7 @@
             </span>
             <br>
         <#if album.imagen1??>
-            <img src="/${album.imagen1.url}" class="imagen mb-2" width="860" title="${album.imagen1.descripcion}"
+            <img src="/${album.imagen1.url}" class="imagen mb-2 rounded mx-auto d-block" width="600" title="${album.imagen1.descripcion}"
                      alt="${album.imagen1.descripcion}">
             <#if album.imagen1.descripcion?length gt 0>
                 <span class="alert alert-secondary rounded-0 m-0">
@@ -46,7 +46,7 @@
                   id="texto-imagen-${album.imagen1.id?string['0']}"></textarea>
                 <button type="submit" class="btn btn-outline-dark rounded-0 btn-comentar-imagen mt-3" data-id="${album.imagen1.id?string['0']}"
                         data-usuario="${usuario.usuario}">
-                    <i class="fas fa-paper-plane"></i> Comentar
+                     Comentar
                 </button>
             </div>
             <div class="comentarios" id="listaComentariosImagen-${album.imagen1.id?string['0']}">
@@ -54,9 +54,9 @@
                     <div class="alert alert-secondary rounded-0 m-0">
                         <small>
                             <strong>
-                                <i class="fas fa-user-circle"></i> ${comentario.usuario.usuario}
-                                &nbsp;|&nbsp;
-                                <i class="fas fa-calendar-alt"></i> ${comentario.fecha?string.iso}
+                                 ${comentario.usuario.usuario}
+
+
                             </strong>
                         </small>
                         <p class="my-2">${comentario.texto}</p>
@@ -84,7 +84,7 @@
                           id="texto-imagen-${album.imagen2.id?string['0']}"></textarea>
                 <button type="submit" class="btn btn-outline-dark rounded-0 btn-comentar-imagen mt-3" data-id="${album.imagen2.id?string['0']}"
                         data-usuario="${usuario.usuario}">
-                    <i class="fas fa-paper-plane"></i> Comentar
+                   Comentar
                 </button>
             </div>
             <div class="comentarios" id="listaComentariosImagen-${album.imagen2.id?string['0']}">
@@ -92,9 +92,8 @@
                     <div class="alert alert-secondary rounded-0 m-0">
                         <small>
                             <strong>
-                                <i class="fas fa-user-circle"></i> ${comentario.usuario.usuario}
-                                &nbsp;|&nbsp;
-                                <i class="fas fa-calendar-alt"></i> ${comentario.fecha?string.iso}
+                                 ${comentario.usuario.usuario}
+
                             </strong>
                         </small>
                         <p class="my-2">${comentario.texto}</p>
@@ -122,7 +121,7 @@
                           id="texto-imagen-${album.imagen3.id?string['0']}"></textarea>
                 <button type="submit" class="btn btn-outline-dark rounded-0 btn-comentar-imagen mt-3" data-id="${album.imagen3.id?string['0']}"
                         data-usuario="${usuario.usuario}">
-                    <i class="fas fa-paper-plane"></i> Comentar
+                    Comentar
                 </button>
             </div>
             <div class="comentarios" id="listaComentariosImagen-${album.imagen3.id?string['0']}">
@@ -130,9 +129,8 @@
                     <div class="alert alert-secondary rounded-0 m-0">
                         <small>
                             <strong>
-                                <i class="fas fa-user-circle"></i> ${comentario.usuario.usuario}
-                                &nbsp;|&nbsp;
-                                <i class="fas fa-calendar-alt"></i> ${comentario.fecha?string.iso}
+                                 ${comentario.usuario.usuario}
+
                             </strong>
                         </small>
                         <p class="my-2">${comentario.texto}</p>
@@ -151,27 +149,10 @@
             <span class="badge badge-secondary"
                   id="badge-me-gusta-album-${album.id?string['0']}">${album.cantidadMeGusta}</span>
         </button>
-        <button class="btn btn-reaccion-album" data-tipo="me-encanta" data-id="${album.id?string['0']}">
-            <i class="far fa-grin-beam fa-lg" style="color: rgb(255, 94, 180)"
-               title="Me encanta"></i>
-            <span class="badge badge-secondary"
-                  id="badge-me-encanta-album-${album.id?string['0']}">${album.cantidadMeEncanta}</span>
-        </button>
-        <button class="btn btn-reaccion-album" data-tipo="meh" data-id="${album.id?string['0']}">
-            <i class="far fa-meh fa-lg" style="color: rgb(255, 158, 41)" title="Meh"></i>
-            <span class="badge badge-secondary"
-                  id="badge-meh-album-${album.id?string['0']}">${album.cantidadMeh}</span>
-        </button>
-        <button class="btn btn-reaccion-album" data-tipo="me-disgusta" data-id="${album.id?string['0']}">
-            <i class="far fa-frown fa-lg" style="color: rgb(255, 75, 75)" title="Me disgusta"></i>
-            <span class="badge badge-secondary"
-                  id="badge-me-disgusta-album-${album.id?string['0']}">${album.cantidadMeDisgusta}</span>
-        </button>
-        <button class="btn btn-reaccion-album" data-tipo="me-indigna" data-id="${album.id?string['0']}">
-            <i class="fas fa-poo fa-lg" style="color: rgb(214, 135, 79)" title="Me indigna"></i>
-            <span class="badge badge-secondary"
-                  id="badge-me-indigna-album-${album.id?string['0']}">${album.cantidadMeIndigna}</span>
-        </button>
+
+
+
+
     </div>
     <form action="/comentarImagen" method="POST" id="agregaComentarioImagen"></form>
 </div>
