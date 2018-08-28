@@ -1,9 +1,8 @@
-<div class="card bg-info text-white rounded-0 col-xs-12 col-lg-8 mx-auto p-0 mb-2">
+<div class="card bg-info text-white rounded-0 col-xs-12 col-lg-6 mx-auto p-0 mb-2">
     <div class="card-header">
         <small class="card-title">
            ${album.usuario.usuario}
-            &nbsp;|&nbsp;
-            ${album.fecha?string.iso}
+
             <#if album.imagen1?? && album.imagen1.personaEtiquetada??>
                 &nbsp;|&nbsp;
 

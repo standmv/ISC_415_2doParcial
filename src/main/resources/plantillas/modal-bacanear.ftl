@@ -15,18 +15,24 @@
                     ${flashMessage}
                 </#if>
                 <form method="POST" action="/bacanear" id="form-bacanear" enctype='multipart/form-data'>
-                    <div class="form-group with-icon label-floating is-empty">
-                        <label class="control-label"> Que estas pensando?</label>
-                        <textarea class="form-control" placeholder="" name="descripcion" required></textarea>
-                        <input type='file' name="foto">
+                    <div class="form-group">
+                        <label for="contenido">Que Estas Pensando?</label>
+                        <textarea name="texto" class="form-control rounded-0" required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="imagen">Agregar foto</label>
+                        <div class="custom-file">
+                            <input type="file" class="custom-file-input" name="imagen">
+                            <label class="custom-file-label" for="validatedCustomFile">Cargar Imagen</label>
+                        </div>
                     </div>
 
                     <div class="modal-footer">
                         <button type="button" class="btn btn-light" data-dismiss="modal">
-                            Cancelar
+                             Cancelar
                         </button>
-                        <button class="btn btn-warning my-2 my-sm-0" type="submit">
-                            Publicar
+                        <button class="btn btn-light my-2 my-sm-0" type="submit">
+                             Publicar
                         </button>
                     </div>
                 </form>
