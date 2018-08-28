@@ -1,239 +1,104 @@
-<#import "/plantillas/base.ftl" as base>
-<@base.pagina logueado=estaLogueado>
-    <div class="col p-0">
-        <div class="row">
-            <div class="col-12 p-0 mt-3">
-                <div class="row m-0">
-                    <div class="card bg-secondary text-white rounded-0 col-6 p-0">
-                        <h5 class="card-header text-center">
-                            <i class="fas fa-video"></i> Loguearse con emoción
-                        </h5>
-                        <div class="card-body">
-                        <#include "affectiva.ftl">
-                        </div>
-                    </div>
-                    <div class="card bg-dark text-white rounded-0 col-6 p-0">
-                        <h5 class="card-header text-center">
-                            <i class="fas fa-id-card"></i> Registrarse
-                        </h5>
-                        <div class="card-body">
-                            <#if flashMessage??>
-                                ${flashMessage}
-                            </#if>
-                            <form action="/registrar" method="POST" id="form-registrar">
-                                <div class="form-row">
-                                    <div class="form-group col-6">
-                                        <label for="nombre">Nombre</label>
-                                        <div class="input-group mb-2">
-                                            <div class="input-group-prepend">
-                                                <div class="input-group-text">
-                                                    <i class="fas fa-id-card"></i>
-                                                </div>
-                                            </div>
-                                            <input type="text" class="form-control" name="nombre" placeholder="Nombre"
-                                                   maxlength="30" required>
-                                        </div>
-                                    </div>
-                                    <div class="form-group col-6">
-                                        <label for="apellido">Apellido</label>
-                                        <div class="input-group mb-2">
-                                            <div class="input-group-prepend">
-                                                <div class="input-group-text">
-                                                    <i class="fas fa-id-card"></i>
-                                                </div>
-                                            </div>
-                                            <input type="text" class="form-control" name="apellido" placeholder="Apellido"
-                                                   maxlength="30" required>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="form-row">
-                                    <div class="form-group col-6">
-                                        <label for="fecha-nacimiento">Fecha de nacimiento</label>
-                                        <div class="input-group mb-2">
-                                            <div class="input-group-prepend">
-                                                <div class="input-group-text">
-                                                    <i class="fas fa-calendar-alt"></i>
-                                                </div>
-                                            </div>
-                                            <input type="date" class="form-control" name="fecha-nacimiento" required>
-                                        </div>
-                                    </div>
-                                    <div class="form-group col-6">
-                                        <label for="nacionalidad">Nacionalidad</label>
-                                        <div class="input-group mb-2">
-                                            <div class="input-group-prepend">
-                                                <div class="input-group-text">
-                                                    <i class="fas fa-globe-americas"></i>
-                                                </div>
-                                            </div>
-                                            <input type="text" class="form-control" name="nacionalidad"
-                                                   placeholder="Nacionalidad" maxlength="30" required>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="form-group col-12">
-                                    <label for="sexo">Sexo</label>
-                                    <br>
-                                    <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="radio" name="sexo" value="M" required>
-                                        <label class="form-check-label" for="sexo">Masculino</label>
-                                    </div>
-                                    <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="radio" name="sexo" value="F" required>
-                                        <label class="form-check-label" for="sexo">Femenino</label>
-                                    </div>
-                                </div>
-                                <div class="form-row">
-                                    <div class="form-group col-6">
-                                        <label for="usuario">Usuario</label>
-                                        <div class="input-group mb-2">
-                                            <div class="input-group-prepend">
-                                                <div class="input-group-text">
-                                                    <i class="fas fa-user"></i>
-                                                </div>
-                                            </div>
-                                            <input type="text" class="form-control" name="usuario" placeholder="Usuario"
-                                                   maxlength="16" required>
-                                        </div>
-                                    </div>
-                                    <div class="form-group col-6">
-                                        <label for="contrasena">Contraseña</label>
-                                        <div class="input-group mb-2">
-                                            <div class="input-group-prepend">
-                                                <div class="input-group-text">
-                                                    <i class="fas fa-lock"></i>
-                                                </div>
-                                            </div>
-                                            <input type="password" class="form-control" name="contrasena"
-                                                   placeholder="Contraseña" maxlength="16" required>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="form-row">
-                                    <div class="col-6">
 
-                                    </div>
-                                    <div class="col-6">
-                                        <button type="button" class="btn btn-sm btn-outline-light float-right"
-                                                id="btn-mostrar-mas">
-                                            Mostrar más
-                                        </button>
-                                    </div>
-                                </div>
-                                <div class="form-row form-mas">
-                                    <div class="form-group col-6">
-                                        <label for="estudio">Estudio en...</label>
-                                        <div class="input-group mb-2">
-                                            <div class="input-group-prepend">
-                                                <div class="input-group-text">
-                                                    <i class="fas fa-user-graduate"></i>
-                                                </div>
-                                            </div>
-                                            <input type="text" class="form-control" name="estudio"
-                                                   placeholder="Estudio en..."
-                                            >
-                                        </div>
-                                    </div>
-                                    <div class="form-group col-6">
-                                        <label for="trabajo">Trabaja en...</label>
-                                        <div class="input-group mb-2">
-                                            <div class="input-group-prepend">
-                                                <div class="input-group-text">
-                                                    <i class="fas fa-briefcase"></i>
-                                                </div>
-                                            </div>
-                                            <input type="text" class="form-control" name="trabajo"
-                                                   placeholder="Trabaja en..."
-                                            >
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="form-row form-mas">
-                                    <div class="form-group col-6">
-                                        <label for="creencia">Creo en...</label>
-                                        <div class="input-group mb-2">
-                                            <div class="input-group-prepend">
-                                                <div class="input-group-text">
-                                                    <i class="fas fa-dove"></i>
-                                                </div>
-                                            </div>
-                                            <input type="text" class="form-control" name="creencia"
-                                                   placeholder="Creo en..."
-                                            >
-                                        </div>
-                                    </div>
-                                    <div class="form-group col-6">
-                                        <label for="sitio-web">Mi sitio web es...</label>
-                                        <div class="input-group mb-2">
-                                            <div class="input-group-prepend">
-                                                <div class="input-group-text">
-                                                    <i class="fas fa-globe"></i>
-                                                </div>
-                                            </div>
-                                            <input type="text" class="form-control" name="sitio-web"
-                                                   placeholder="Mi sitio web es...">
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="form-row form-mas">
-                                    <div class="form-group">
-                                        <label for="emocion">Emoción</label>
-                                        <div class="input-group mb-2">
-                                            <div class="input-group-prepend">
-                                                <div class="input-group-text">
-                                                    <i class="far fa-grin-wink"></i>
-                                                </div>
-                                            </div>
-                                            <select name="emocion" class="form-control custom-select">
-                                                <option value="😃">😃 Felicidad</option>
-                                                <option value="😳">😳 Sorpresa</option>
-                                                <option value="😐">😐 Neutral</option>
-                                                <option value="😱">😱 Miedo</option>
-                                                <option value="😡">😡 Enfado</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                </div>
-                                <button type="submit" class="btn btn-outline-warning">
-                                    <i class="fas fa-angle-right"></i> Registrarse
-                                </button>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <script src="/js/jquery-validation/dist/jquery.validate.min.js"></script>
-    <script>
-        $(document).ready(function () {
-            $(".form-mas").hide();
+<link href="/css/login_regis.css" rel="stylesheet">
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<script>
+    $(function() {
 
-            $("#btn-mostrar-mas").unbind().click(function () {
-                $(".form-mas").toggle();
-            });
-
-            $("#form-registrar").validate({
-                rules: {
-                    nombre: "required",
-                    apellido: "required",
-                    nacionalidad: "required",
-                    "fecha-nacimiento": "required",
-                    sexo: "required",
-                    usuario: "required",
-                    contrasena: "required"
-                },
-                messages: {
-                    nombre: "Campo requerido",
-                    apellido: "Campo requerido",
-                    nacionalidad: "Campo requerido",
-                    "fecha-nacimiento": "Campo requerido",
-                    sexo: "Campo requerido",
-                    usuario: "Campo requerido",
-                    contrasena: "Campo requerido"
-                }
-            });
+        $('#login-form-link').click(function(e) {
+            $("#login-form").delay(100).fadeIn(100);
+            $("#register-form").fadeOut(100);
+            $('#register-form-link').removeClass('active');
+            $(this).addClass('active');
+            e.preventDefault();
         });
-    </script>
-</@base.pagina>
+        $('#register-form-link').click(function(e) {
+            $("#register-form").delay(100).fadeIn(100);
+            $("#login-form").fadeOut(100);
+            $('#login-form-link').removeClass('active');
+            $(this).addClass('active');
+            e.preventDefault();
+        });
+
+    });
+</script>
+   <div class="container">
+       <div class="row">
+           <div class="col-md-6 col-md-offset-3">
+               <div class="panel panel-login">
+                   <div class="panel-heading">
+                       <div class="row">
+                           <div class="col-xs-6">
+                               <a href="#" class="active" id="login-form-link">Login</a>
+                           </div>
+                           <div class="col-xs-6">
+                               <a href="#" id="register-form-link">Register</a>
+                           </div>
+
+                       </div>
+                       <hr>
+                   </div>
+                   <div class="panel-body">
+                       <div class="row">
+                           <div class="col-lg-12">
+                               <form class="form-horizontal" id="login-form" role="form" method="post" action="/login" style="display: block;">
+                                   <h2 class="text-center">Login</h2>
+
+                                   <div class="form-group">
+                                       <label for="email" class="col-sm-3 control-label">Correo</label>
+                                       <div class="col-sm-9">
+                                           <input type="text" id="email" placeholder="" class="form-control" name="username">
+                                       </div>
+                                   </div>
+                                   <div class="form-group">
+                                       <label for="password" class="col-sm-3 control-label">Contraseña</label>
+                                       <div class="col-sm-9">
+                                           <input type="password" id="password" placeholder="" class="form-control" name="password">
+                                       </div>
+                                   </div>
+
+                                   <div class="form-group">
+                                       <div class="col-sm-9 col-sm-offset-3">
+                                           <button type="submit" class="btn btn-primary">Ingresar</button>
+                                       </div>
+                                   </div>
+                               </form>
+                               <form id="register-form" method="post" action="/registrarme" class="content" name="registrationForm" style="display: none;">
+                                   <input type="hidden" name="iniciarsesion" value="false">
+                                   <div class="row">
+                                       <div class="col col-12 col-xl-6 col-lg-6 col-md-6 col-sm-12">
+                                           <div class="form-group label-floating is-empty">
+                                               <label class="control-label">Nombre</label>
+                                               <input class="form-control" placeholder="" name="nombre" type="text" required>
+                                           </div>
+                                       </div>
+                                       <div class="col col-12 col-xl-6 col-lg-6 col-md-6 col-sm-12">
+                                           <div class="form-group label-floating is-empty">
+                                               <label class="control-label">Apellido</label>
+                                               <input class="form-control" placeholder="" name="apellido" type="text" required>
+                                           </div>
+                                       </div>
+                                       <div class="col col-12 col-xl-12 col-lg-12 col-md-12 col-sm-12">
+                                           <div class="form-group label-floating is-empty">
+                                               <label class="control-label">Email</label>
+                                               <input class="form-control" placeholder="" name="correo" type="email" required>
+                                           </div>
+                                           <div class="form-group label-floating is-empty">
+                                               <label class="control-label">Contraseña</label>
+                                               <input class="form-control" placeholder="" name="contrasena" type="password" required>
+                                           </div>
+
+                                           <button type="submit" class="btn btn-purple btn-lg full-width">Registrarme!</button>
+                                       </div>
+                                   </div>
+                               </form>
+
+                           </div>
+                       </div>
+                   </div>
+               </div>
+           </div>
+       </div>
+   </div>
+
