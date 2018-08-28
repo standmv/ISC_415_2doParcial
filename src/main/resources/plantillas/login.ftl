@@ -81,6 +81,18 @@
                                        </div>
 
                                        <div class="col col-12 col-xl-6 col-lg-6 col-md-6 col-sm-12">
+                                           <label for="fecha-nacimiento">Fecha Nacimiento</label>
+                                           <div class="input-group mb-2">
+                                               <div class="input-group-prepend">
+                                                   <div class="input-group-text">
+                                                       <i class="fas fa-calendar-alt"></i>
+                                                   </div>
+                                               </div>
+                                               <input type="date" class="form-control" name="fecha-nacimiento" required>
+                                           </div>
+                                       </div>
+
+                                       <div class="col col-12 col-xl-6 col-lg-6 col-md-6 col-sm-12">
                                            <label for="sexo">Sexo</label>
                                            <br>
                                            <div class="form-check form-check-inline">
@@ -102,8 +114,8 @@
 
                                        <div class="col col-12 col-xl-12 col-lg-12 col-md-12 col-sm-12">
                                            <div class="form-group label-floating is-empty">
-                                               <label class="control-label">Email</label>
-                                               <input class="form-control" placeholder="" name="correo" type="email" required>
+                                               <label class="control-label">Usuario</label>
+                                               <input class="form-control" placeholder="" name="usuario" type="text" required>
                                            </div>
                                            <div class="form-group label-floating is-empty">
                                                <label class="control-label">Contraseña</label>
