@@ -14,7 +14,7 @@
                 <#if flashMessage??>
                     ${flashMessage}
                 </#if>
-                <form method="POST" action="/bacanear" id="form-bacanear" enctype='multipart/form-data'>
+                <form method="POST" action="/post" id="form-bacanear" enctype='multipart/form-data'>
                     <div class="form-group">
                         <label for="contenido">Que Estas Pensando?</label>
                         <textarea name="texto" class="form-control rounded-0" required></textarea>

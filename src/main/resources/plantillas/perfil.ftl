@@ -49,6 +49,6 @@
     <script src="/js/reaccionar.js"></script>
     <script src="/js/comentar.js"></script>
     <#include "modal-notificaciones.ftl">
-    <#include "modal-bacanear.ftl">
+    <#include "modal-post.ftl">
     <#include "modal-album.ftl">
 </@base.pagina>

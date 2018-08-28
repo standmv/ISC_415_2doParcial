@@ -132,7 +132,7 @@ public class Enrutamiento {
             }
         });
 
-        before("/bacanear", (req, res) -> {
+        before("/post", (req, res) -> {
             req.attribute("org.eclipse.jetty.multipartConfig", new MultipartConfigElement("/temp"));
             String texto = req.queryParams("texto");
 
@@ -174,7 +174,7 @@ public class Enrutamiento {
                 }
             }, JSON.json());
 
-            post("/bacanear", (req, res) -> {
+            post("/post", (req, res) -> {
                 req.attribute("org.eclipse.jetty.multipartConfig", new MultipartConfigElement("/temp"));
 
                 String nombreUsuario = req.queryParams("usuario");
@@ -381,7 +381,7 @@ public class Enrutamiento {
             return null;
         });
 
-        post("/bacanear", (req, res) -> {
+        post("/post", (req, res) -> {
             java.sql.Date tiempoAhora = new Date(System.currentTimeMillis());
 
             Path tempFile = Files.createTempFile(uploadDir.toPath(), "", "");
