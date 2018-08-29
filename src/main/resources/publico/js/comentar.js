@@ -111,7 +111,7 @@ function notifyMe(titulo, cuerpo) {
         Notification.requestPermission();
     else {
         var notification = new Notification(titulo, {
-            icon: 'img/bacano.png',
+            icon: 'img/306232.png',
             body: cuerpo
         });
 

@@ -14,7 +14,7 @@
         <class>Modelos.Usuario</class>
         <class>Modelos.Notificacion</class>
         <properties>
-            <property name="javax.persistence.jdbc.url" value="jdbc:h2:tcp://localhost/~/bacano" />
+            <property name="javax.persistence.jdbc.url" value="jdbc:h2:tcp://localhost/~/parcial" />
             <property name="javax.persistence.jdbc.driver" value="org.h2.Driver" />
             <property name="javax.persistence.jdbc.user" value="sa" />
             <property name="javax.persistence.jdbc.password" value="" />

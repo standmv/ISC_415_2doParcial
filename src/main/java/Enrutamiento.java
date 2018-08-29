@@ -318,7 +318,7 @@ public class Enrutamiento {
                     if (req.queryParams("guardarSesion") != null) {
                         String sesionID = req.session().id();
                         StrongTextEncryptor encriptador = new StrongTextEncryptor();
-                        encriptador.setPassword("bacano");
+                        encriptador.setPassword("tunombre");
                         String sesionIDEncriptado = encriptador.encrypt(sesionID);
 
                         System.out.println("Sesión sin encriptar: " + sesionID);
@@ -357,7 +357,7 @@ public class Enrutamiento {
                     if (req.queryParams("guardarSesion") != null) {
                         String sesionID = req.session().id();
                         StrongTextEncryptor encriptador = new StrongTextEncryptor();
-                        encriptador.setPassword("bacano");
+                        encriptador.setPassword("tunombre");
                         String sesionIDEncriptado = encriptador.encrypt(sesionID);
 
                         System.out.println("Sesión sin encriptar: " + sesionID);
@@ -976,7 +976,7 @@ public class Enrutamiento {
 
     private static Usuario restaurarSesion(String cookie) {
         StrongTextEncryptor encriptador = new StrongTextEncryptor();
-        encriptador.setPassword("bacano");
+        encriptador.setPassword("tunombre");
         String sesionSemanal = encriptador.decrypt(cookie);
 
         Usuario usuarioRestaurado = (Usuario) ServicioUsuario.getInstancia().encontrarUsuarioSesion(sesionSemanal);
