@@ -972,6 +972,64 @@ public class Enrutamiento {
 
             return com.getId() + "," + com.getFecha().toString() + "," + imagenAux.getComentarios().size();
         });
+
+        path("/rest", () -> {
+            get("/", (req, res) -> {
+                StringWriter writer = new StringWriter();
+                Map<String, Object> atributos = new HashMap<>();
+                Template template = configuration.getTemplate("plantillas/cliente-rest.ftl");
+
+                template.process(atributos, writer);
+
+                return writer;
+            });
+
+            post("/listarPost", (req, res) -> {
+                String usuario = req.queryParams("usuario");
+                res.redirect("/rest/posts/" + usuario);
+                return null;
+            });
+
+            get("/posts/:usuario", (req, res) -> {
+                String usuario = req.params("usuario");
+                Template template = configuration.getTemplate("plantillas/post-usuario-rest.ftl");
+                StringWriter writer = new StringWriter();
+                Map<String, Object> atributos = new HashMap<>();
+
+                ClienteRest rest = new ClienteRest();
+
+                String salida = rest.listarPost(usuario);
+
+                if (!salida.replaceAll("\"", "").equals("")) {
+                    salida = salida.replace('[', ' ');
+                    salida = salida.replace(']', ' ');
+                    String[] salidasAux = salida.split("\"");
+
+                    List<String> listaSalidasAux = new ArrayList<>();
+
+                    for (int i = 0; i < salidasAux.length; i++) {
+                        if (!salidasAux[i].equals(" ") && !salidasAux[i].equals(",")) {
+                            listaSalidasAux.add(salidasAux[i]);
+                        }
+                    }
+
+                    List<String []> salidas = new ArrayList<>();
+
+                    for (String x : listaSalidasAux) {
+                        salidas.add(x.split(","));
+                    }
+
+                    atributos.put("salidas", salidas);
+                    template.process(atributos, writer);
+
+                    return writer;
+                } else {
+                    setFlashMessage(req, "No se pudo consultar posts. El usuario no existe.");
+                    res.redirect("/");
+                    return null;
+                }
+            });
+        });
     }
 
     private static Usuario restaurarSesion(String cookie) {
